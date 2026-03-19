@@ -1,0 +1,177 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=2cm,includefoot]{geometry}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{physics}
+\usepackage[shortlabels]{enumitem}
+\usepackage{cancel}
+\usepackage{lastpage}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{L-head}
+\rhead{R-head}
+\chead{C-head}
+\fancyfoot{}
+\fancyfoot[R]{Page \thepage /\pageref{LastPage}}
+
+\usepackage{listings}
+\usepackage{color}
+ \usepackage{titling}
+ \usepackage{amsfonts}
+ \usepackage{pdfpages}
+ \usepackage{tikz}
+ \usepackage{mathrsfs}
+ \usepackage{bm}
+
+\usepackage{calligra}
+
+\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+\newcommand{\scriptr}{\mathcalligra{r}\,}
+\newcommand{\vbboldscriptr}{\pmb{\mathcalligra{r}}\,}
+
+\newcommand{\vba}{\mathbf{A}}
+\newcommand{\vbb}{\mathbf{B}}
+\newcommand{\C}{\mathbf{C}}
+\newcommand{\x}{\mathbf{\hat{x}}}
+\newcommand{\y}{\mathbf{\hat{y}}}
+\newcommand{\z}{\mathbf{\hat{z}}}
+\newcommand{\vr}{\mathbf{\hat r}}
+\newcommand{\thet}{\boldsymbol{{\hat \theta}}}
+\newcommand{\ph}{\boldsymbol{{\hat \phi}}}
+\newcommand{\ba}{\mathbf{a}}
+\newcommand{\bb}{\mathbf{b}}
+\newcommand{\vl}{\mathbf{l}}
+\newcommand{\vv}{\mathbf{v}}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\p}{\mathbb{P}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\I}{\mathbb{I}}
+\newcommand{\E}{\mathbb{E}}
+
+\newcommand{\mbeq}{\overset{!}{=}}
+\newcommand{\ko}{\frac{1}{4\pi \epsilon_0}}
+
+\begin{document}
+    \begin{center}
+        \vspace*{1cm}
+            
+        \Huge
+        \textbf{Solving a generalisation of tic-tac-toe or $k$-in-a-row game on infinite $\{m, n\}$ tilings of 2D space.}
+            
+        \vspace{0.5cm}
+        \LARGE
+        Subtitle
+            
+        \vspace{1.5cm}
+
+        \large
+        \textbf{Names}
+            
+         \vspace{0.5cm}
+        description\\
+        \vspace{0.5cm}
+        University
+
+    \end{center}
+\newpage
+\tableofcontents
+\newpage
+
+\section{Introduction}
+\subsection{Insights}
+In $\{m, n\}$ tiling let 
+\begin{align}
+    m = 2i: i\in \N. \label{m_condition}
+\end{align}
+It matters so that there ale straight lines going through the shapes. Then in $n = 2j + 1$ tilings, diagonals do not make sense. In $n = 2j$ tilings, however, diagonals make sense. We then distinguish between a $\{m, n = 2j\}_m$ and $\{m, n = 2j\}_{vn}$ configurations named after the Moore (M) and Von Neumann (VN) neighbourhoods. The Moore version permitting diagonals to be used and the Von Neumann version only permitting edge-connected series. The classical tic-tac-toe is then played on a $\{4, 4\}_m$ board. In the spirit of $m,n,k$ games we include also the the length of the winning sequence as follows: $\{m, n\}^k$. The number of axis that you can win on then becomes $m$ in the M configuration and $m/2$ in the VN configuration.
+
+\subsection{Notation}
+
+\subsubsection{Schläfli symbol}
+
+The Schläfli symbol is used to compactly denote any regular polytope or tessellation. For our case it will be of the form $\{p, q\}$, where $\{p\}$ is a regular $p$-sided polygon and $q$ is the number of these polygons joined at each vertex.
+
+\subsubsection{Game versions}
+$(1, 1, 1)$ where each player occupies 1 position in a move. $(1, 2, 2)$ where the first move occupies 1 position and then both players occupy 2 positions per move.
+
+\subsection{Maker-Breaker games}
+In a Maker-Breaker game, the Maker is the player trying to achieve the winning objective and Breaker is the player trying to stop the Maker from achieving this.
+
+\subsubsection{Insights into Maker-Maker games}
+If a $k$-game is a Breaker win, we know that the original Maker-Maker version is a draw.
+
+\subsubsection{Strategy stealing argument for $(1, 1, 1)$}
+In a Maker-Maker game, if there was a strategy such that P2 would have a winning strategy, P1 could just steal the strategy in a way where P1 would make a random move and then effectively play the role of P2 and employ that winning strategy. This is a contradiction as both P1 and P2 have a winning strategy. Therefore only P1 can have a winning strategy.
+
+\section{Tiling spaces}
+No spherical tilings since they are all finite and do not form an infinite playing board.
+
+The proof for any tiling with $k = 1$ is trivial as the first player wins by making any move.
+
+\subsection{Euclidean tilings}
+The only regular tilings of Euclidean space are $\{2, \infty\}, \{3, 6\}, \{4, 4\}, \{6, 3\}, \{\infty, 2\}$. We do not look at the $\{\infty, 2\}$ tiling as it does not provide an infinite playing board. We also exclude the $ \{3, 6\}$ tiling as it does not satisfy condition \ref{m_condition}. Finally, we also do not spend too much time looking at the $\{4, 4\}$ tiling as this is the case with regular $m, n, k$-games and has been studied extensively. We are left with the $\{2, \infty\}$ and $\{6, 3\}$ tilings, which we take a close look at.
+
+\subsubsection{The $\{2, \infty\}$ tiling}
+This is a very trivial case as it is a win for P1 in the case of $k \le 2$ and a draw in the case $k > 2$.
+\par
+For the case $k = 2$ P1 has a winning strategy. We can see that the $\{2, \infty\}$ has a reflective symmetry. Therefore the is only one game (up to symmetry) of $\{2, \infty\}^2$. It is shown in Figure \ref{fig:{2, infty}-2}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/{2, infty}^2_win.png}
+    \caption{Drawing of the winning strategy for $\{2, \infty\}^2$.}
+    \label{fig:{2, infty}-2}
+\end{figure}
+
+\par
+For the case $k > 2$ We can show this using a simple pairing argument where we tile the space as in Figure \ref{fig:{2, infty}}.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/{2, infty}_pair.png}
+    \caption{Drawing of the pairing strategy for $\{2, \infty\}^3$.}
+    \label{fig:{2, infty}}
+\end{figure}\\
+\textbf{NEEDS PROOF OF SAME THING FOR $(1, 2, 2)$}
+
+\subsubsection{The $\{6, 3\}$ tiling}
+Since the vertex degree in this tiling is odd, we will not consider diagonals.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/{6, 3} - 9 (parity).png}
+    \caption{Drawing of the pairing strategy for $\{6, 3\}^9$.}
+    \label{fig:{6, 3}-9}
+\end{figure}
+
+Figure \ref{fig:{6, 3}-9} shows a winning breaker strategy for the $\{6, 3\}^9$ game.\\
+\textbf{NEEDS PROOF FOR $k < 5$.}\\
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/{6, 3}_win4.png}
+    \caption{Forced Winning configuration (up to symmetry) for $\{6, 3\}^4.$}
+    \label{fig:6, 3 - win 4}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/{6, 3}_last_moves-4.png}
+    \caption{Threat illustration for $\{6, 3\}^4$.}
+    \label{fig:6, 3 - threats 4}
+\end{figure}
+
+\textbf{NEEDS PROOFS FOR $(1, 2, 2)$}
+
+\subsection{Hyperbolic tilings}
+There is an infinite amount of hyperbolic tilings. We will therefore look at some representative examples and then draw general conclusions.
+
+\newpage
+\bibliographystyle{plain}
+\bibliography{bibliography}
+\end{document}
