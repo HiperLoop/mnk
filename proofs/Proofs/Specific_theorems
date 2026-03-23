@@ -1,0 +1,5 @@
+import Proofs.General_theorems
+
+-- Defines a pairing for the {2, ∞} case
+def Pairing_for_2_infinity_k : Set (Set Int) :=
+  {}
