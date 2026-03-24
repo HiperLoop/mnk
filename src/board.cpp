@@ -48,6 +48,7 @@ void Tiling::PrintData() {
     std::cout << std::format("angleStep = {}\n", angleStep * 180 / M_PI); // Convert radians to degrees for better readability
 }
 
+// Generates the array of Tiles that make up the tiling
 void Tiling::GenerateTesselation() {
-
+    //TODO
 }
