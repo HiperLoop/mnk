@@ -57,6 +57,9 @@ public:
     // Constructor
     Tiling(int polygon_degree, int vertex_degree, int tiling_radius);
 
+    // Destructor
+    ~Tiling();
+
     void PrintData();
 
     // Returns transform matrix to get to the desired neighbour

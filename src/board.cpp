@@ -17,6 +17,14 @@ m(polygon_degree), n(vertex_degree), tilingRadius(tiling_radius), cos_pi_m(std::
     InitDistance();
 }
 
+// Tiling destructor
+Tiling::~Tiling() {
+    for (std::vector<Tile*>::iterator it = Tesselation.begin(); it != Tesselation.end(); ++it) {
+        delete *it;
+    }
+    Tesselation.clear();
+}
+
 // Throw an exception if tiling is of odd-sided polygons
 void Tiling::EvenPolygonCheck() {
     if (m % 2 != 0) {
@@ -60,7 +68,7 @@ void Tiling::PrintData() {
     std::cout << std::format("angleStep = {}\n", angleStep * 180 / M_PI); // Convert radians to degrees for better readability
 
     std::cout << "Tesselation parameters:\n";
-    std::cout << std::format("number of tiles = {}", Tesselation.size());
+    std::cout << std::format("number of tiles = {}\n", Tesselation.size());
 }
 
 Algebra::Matrix<double> createRotation(double theta) {
