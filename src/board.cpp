@@ -1,10 +1,5 @@
 #include "board.hpp"
 
-bool ComplexLessThan(const Complex& a, const Complex& b) {
-    if (std::arg(a) != std::arg(b)) return std::arg(a) < std::arg(b);
-    return std::abs(a) < std::abs(b);
-}
-
 // Tile constructor
 Tile::Tile(double angle, double dist, int layer) : Coord(std::polar(dist, angle)), layer(layer) {}
 
@@ -71,6 +66,7 @@ void Tiling::PrintData() {
     std::cout << std::format("number of tiles = {}\n", Tesselation.size());
 }
 
+// Returns a rotation matrix pointing to the desired angle
 Algebra::Matrix<double> createRotation(double theta) {
     Algebra::Matrix<double> res(3); // Start with 1s on the diagonal
     double c = std::cos(theta);
@@ -83,6 +79,7 @@ Algebra::Matrix<double> createRotation(double theta) {
     return res;
 }
 
+// Returns translation matrix moving by a distance d
 Algebra::Matrix<double> createTranslation(double d) {
     Algebra::Matrix<double> res(3);
     double ch = std::cosh(d);
@@ -108,10 +105,13 @@ Algebra::Matrix<double> Tiling::GetNeighborTransform(const Algebra::Matrix<doubl
     return current * (rot * trans);
 }
 
+// Function to retunr coordinate of neighbour
 Complex Tiling::CalculateNeighbor(Complex Coord, int i) {
+    // TODO
     return 0;
 }
 
+// Returns bool value of whether the desired tile already exists or not
 bool Tiling::IsTileDuplicate(Complex newCenter, const std::vector<Complex>& existing) {
     for (const auto& old : existing) {
         if (std::norm(newCenter - old) < 1e-6) return true;
@@ -122,7 +122,7 @@ bool Tiling::IsTileDuplicate(Complex newCenter, const std::vector<Complex>& exis
 // Generates the array of Tiles that make up the tilings
 void Tiling::GenerateTesselation() {
     std::vector<Tile*> allTiles;
-    std::set<Complex, decltype(&ComplexLessThan)> visited;
+    std::set<Complex, decltype(&Algebra::ComplexLessThan)> visited;
     std::queue<Tile*> frontier;
 
     // Start with the center tile at (0,0)

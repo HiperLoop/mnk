@@ -3,13 +3,9 @@
 
 #include "util.hpp"
 #include <format>
-#include <complex>
 #include <set>
 #include <queue>
 #include <map>
-
-using Complex = std::complex<double>;
-bool ComplexLessThan(const Complex& a, const Complex& b);
 
 class Tile {
 public:

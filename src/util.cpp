@@ -1,7 +1,9 @@
 #include "util.hpp"
 
+// Constructor
 CustomException::CustomException(const std::string& msg) : message(msg) {}
 
+// Defines custom what() output
 const char* CustomException::what() const noexcept {
     return message.c_str();
 }
@@ -23,4 +25,10 @@ double Geometry::CoordinateAngleStep(int m, int n) {
     // There are m * (n - 2) polygons surrounding each one
     // The result is dividing the whole circle (2pi) by the number of adjecent polygons
     return 2 * M_PI / (m * (n - 2));
+}
+
+// Definition of complex < operator that first looks at the angle then the distance
+bool Algebra::ComplexLessThan(const Complex& a, const Complex& b) {
+    if (std::arg(a) != std::arg(b)) return std::arg(a) < std::arg(b);
+    return std::abs(a) < std::abs(b);
 }

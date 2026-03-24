@@ -6,9 +6,12 @@
 #include <stdexcept>
 #include <iostream>
 #include <vector>
-
-#define _USE_MATH_DEFINES
+#include <complex>
 #include <math.h>
+#include <numbers>
+
+using Complex = std::complex<double>;
+double M_PI = std::numbers::pi;
 
 class CustomException : public std::exception {
 private:
@@ -33,6 +36,9 @@ namespace Geometry {
 };
 
 namespace Algebra {
+    // defines < operator for complex numbers
+    bool ComplexLessThan(const Complex& a, const Complex& b);
+
     template <typename T>
     class Matrix {
     public:
@@ -86,7 +92,6 @@ namespace Algebra {
         }
 
         // Multiplication: C = A * B
-        // Optimized using i-k-j loop order for cache locality
         Matrix<T> operator*(const Matrix<T>& other) const {
             if (n != other.n) throw std::invalid_argument("Matrix dimensions must match.");
             Matrix<T> result(n);
