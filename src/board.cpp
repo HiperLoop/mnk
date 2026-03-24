@@ -6,7 +6,9 @@ Tile::Tile(double angle, double dist, int layer) : Coord(std::polar(dist, angle)
 // Tiling constructor
 Tiling::Tiling(int polygon_degree, int vertex_degree, int tiling_radius) : 
 m(polygon_degree), n(vertex_degree), tilingRadius(tiling_radius), cos_pi_m(std::cos(std::numbers::pi / polygon_degree)), cos_pi_n(std::cos(std::numbers::pi / vertex_degree)), sin_pi_m(std::sin(std::numbers::pi / polygon_degree)) {
+    // Check for invalid tilings
     EvenPolygonCheck();
+    // Initialise Tiling parameters
     InitDirectionality();
     InitCoordinateSystem();
     InitDistance();
@@ -23,7 +25,7 @@ Tiling::~Tiling() {
 // Throw an exception if tiling is of odd-sided polygons
 void Tiling::EvenPolygonCheck() {
     if (m % 2 != 0) {
-        throw CustomException("Uneven-sided polygon tiling is forbidden.");
+        throw CustomException("Odd-sided polygon tiling is invalid.");
     }
 }
 
