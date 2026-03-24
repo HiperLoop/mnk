@@ -3,6 +3,11 @@
 // Tile constructor
 Tile::Tile(double angle, double dist, int layer) : Coord(std::polar(dist, angle)), layer(layer) {}
 
+// Tile destructor
+Tile::~Tile() {
+    //location.clear();
+}
+
 // Tiling constructor
 Tiling::Tiling(int polygon_degree, int vertex_degree, int tiling_radius) : 
 m(polygon_degree), n(vertex_degree), tilingRadius(tiling_radius), cos_pi_m(std::cos(std::numbers::pi / polygon_degree)), cos_pi_n(std::cos(std::numbers::pi / vertex_degree)), sin_pi_m(std::sin(std::numbers::pi / polygon_degree)) {
@@ -12,6 +17,8 @@ m(polygon_degree), n(vertex_degree), tilingRadius(tiling_radius), cos_pi_m(std::
     InitDirectionality();
     InitCoordinateSystem();
     InitDistance();
+    // Generate tiling
+    GenerateTesselation();
 }
 
 // Tiling destructor
@@ -107,10 +114,21 @@ Algebra::Matrix<double> Tiling::GetNeighborTransform(const Algebra::Matrix<doubl
     return current * (rot * trans);
 }
 
-// Function to retunr coordinate of neighbour
-Complex Tiling::CalculateNeighbor(Complex Coord, int i) {
-    // TODO
-    return 0;
+// Function to return coordinate of neighbour
+Complex Tiling::CalculateNeighbor(const Algebra::Matrix<double>& current, int i) {
+    Algebra::Matrix<double> transform = GetNeighborTransform(current, i);
+    // The "point" at the center of a tile in its own local space is (0, 0, 1).
+    // Multiplying the matrix by (0, 0, 1) effectively extracts the 3rd column.
+    double x = transform(0, 2);
+    double y = transform(1, 2);
+    double z = transform(2, 2);
+
+    // Stereographic projection from the Hyperboloid to the Poincaré Disk.
+    // In Euclidean space, z is effectively 1, and this becomes (x, y).
+    // In Hyperbolic space, z > 1, which "shrinks" the tiles toward the edge.
+    double factor = 1.0 / (1.0 + z);
+    
+    return { x * factor, y * factor };
 }
 
 // Returns bool value of whether the desired tile already exists or not
@@ -123,15 +141,15 @@ bool Tiling::IsTileDuplicate(Complex newCenter, const std::vector<Complex>& exis
 
 // Generates the array of Tiles that make up the tilings
 void Tiling::GenerateTesselation() {
-    std::vector<Tile*> allTiles;
-    std::set<Complex, decltype(&Algebra::ComplexLessThan)> visited;
+    std::set<Complex, decltype(&Algebra::ComplexLessThan)> visited(Algebra::ComplexLessThan);
     std::queue<Tile*> frontier;
 
     // Start with the center tile at (0,0)
     Tile* root = new Tile(0, 0, 0);
     frontier.push(root);
     visited.insert(root->Coord);
-    allTiles.push_back(root);
+    Tesselation.push_back(root);
+    std::cout << Tesselation.size() << "\n";
 
     while (!frontier.empty()) {
         Tile* current = frontier.front();
@@ -139,19 +157,20 @@ void Tiling::GenerateTesselation() {
 
         if (current->layer >= tilingRadius) continue;
 
-        // Try to add 'n' neighbors for this regular n-gon
-        for (int i = 0; i < n; ++i) {
+        // Try to add 'm' neighbors for this regular m-gon
+        for (int i = 0; i < m; ++i) {
             // Logic to calculate neighbor coordinates based on 'i'
             // This varies by tiling type (Square vs Hex vs Hyperbolic)
-            Complex neighborPos = CalculateNeighbor(current->Coord, i);
+            Complex neighborPos = CalculateNeighbor(current->location, i);
+            Algebra::Matrix<double> neighbourMatrix = GetNeighborTransform(current->location, i);
 
             if (visited.find(neighborPos) == visited.end()) {
                 visited.insert(neighborPos);
                 Tile* next = new Tile(std::arg(neighborPos), std::abs(neighborPos), current->layer + 1);
-                allTiles.push_back(next);
+                //next->location = neighbourMatrix;
+                Tesselation.push_back(next);
                 frontier.push(next);
             }
         }
     }
-    Tesselation = allTiles;
 }

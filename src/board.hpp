@@ -12,12 +12,16 @@ public:
     // Coordinates
     Complex Coord;
     int layer = 0;
+    Algebra::Matrix<double> location = Algebra::Matrix<double>::Identity(3);
 
     // Tile value
     int value = 0;
 
     // Constructor
     Tile(double angle, double dist, int layer);
+
+    // Destructor
+    ~Tile();
 };
 
 class Tiling {
@@ -61,8 +65,7 @@ public:
     // Returns transform matrix to get to the desired neighbour
     Algebra::Matrix<double> GetNeighborTransform(const Algebra::Matrix<double>& current, int edge_index);
 
-
-    Complex CalculateNeighbor(Complex Coord, int i);
+    Complex CalculateNeighbor(const Algebra::Matrix<double>& current, int i);
 
     // Checks whether a tile is being generated duplictely
     bool IsTileDuplicate(Complex newCenter, const std::vector<Complex>& existing);
