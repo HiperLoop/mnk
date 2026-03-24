@@ -24,4 +24,3 @@ double Geometry::CoordinateAngleStep(int m, int n) {
     // The result is dividing the whole circle (2pi) by the number of adjecent polygons
     return 2 * M_PI / (m * (n - 2));
 }
-
