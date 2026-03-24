@@ -2,6 +2,8 @@
 #define BOARD
 
 #include "util.hpp"
+#include <iostream>
+#include <format>
 
 class Tiling {
 public:
@@ -9,17 +11,27 @@ public:
     int m = 0;
     int n = 0;
 
-    // Calculated useful tiling properties
+    // Useful tiling constants
     int vertexDiag = 0;
+    int shapeDir = 0;
     int shapeDiag = 0;
-    int shapeThrough = 0;
+
+    // Coordinate system constants
+    double distStep = 0;
+    double angleStep = 0;
 
     // Constructor
-    Tiling(int initial_m, int initial_n);
+    Tiling(int polygon_degree, int vertex_degree);
+
+    void PrintData();
 
 private:
-    // Helper to validate the tiling
-    void EvenPolygonCheck(int m, int n);
+    // Validate the tiling
+    void EvenPolygonCheck();
+    // Calculate the useful tiling constants
+    void InitDirectionality();
+    // Calculate the coordinate system constants
+    void InitCoordinateSystem();
 };
 
 #endif
