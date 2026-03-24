@@ -4,6 +4,8 @@
 #include <exception>
 #include <string>
 #include <stdexcept>
+#include <iostream>
+#include <vector>
 
 #define _USE_MATH_DEFINES
 #include <math.h>
@@ -33,11 +35,10 @@ namespace Geometry {
 namespace Algebra {
     template <typename T>
     class Matrix {
-    private:
+    public:
         int n; // Size of the NxN matrix
         std::vector<T> data;
 
-    public:
         // Constructor: Initialize NxN matrix with zeros
         Matrix(int size) : n(size), data(size * size, 0) {}
 
