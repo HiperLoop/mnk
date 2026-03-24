@@ -1,12 +1,16 @@
 #include "board.hpp"
 
-Tiling::Tiling(int polygon_degree, int vertex_degree) : m(polygon_degree), n(vertex_degree) {
+// Tile constructor
+Tile::Tile(double angle, double dist) : coordAngle(angle), coordDist(dist) {}
+
+// Tiling constructor
+Tiling::Tiling(int polygon_degree, int vertex_degree, int tiling_radius) : m(polygon_degree), n(vertex_degree), tilingRadius(tiling_radius) {
     EvenPolygonCheck();
     InitDirectionality();
     InitCoordinateSystem();
 }
 
-// This will throw an exception if tiling is of odd-sided polygons
+// Throw an exception if tiling is of odd-sided polygons
 void Tiling::EvenPolygonCheck() {
     if (m % 2 != 0) {
         throw CustomException("Uneven-sided polygon tiling is forbidden.");
@@ -42,4 +46,8 @@ void Tiling::PrintData() {
     std::cout << "Coordinate system constants:\n";
     std::cout << std::format("distStep = {}\n", distStep);
     std::cout << std::format("angleStep = {}\n", angleStep * 180 / M_PI); // Convert radians to degrees for better readability
+}
+
+void Tiling::GenerateTesselation() {
+
 }
