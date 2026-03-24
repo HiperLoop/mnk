@@ -2,24 +2,26 @@
 #define BOARD
 
 #include "util.hpp"
-#include <iostream>
 #include <format>
+#include <complex>
+#include <set>
+#include <queue>
 #include <map>
+
+using Complex = std::complex<double>;
+bool ComplexLessThan(const Complex& a, const Complex& b);
 
 class Tile {
 public:
     // Coordinates
-    double coordAngle;
-    double coordDist;
+    Complex Coord;
+    int layer = 0;
 
     // Tile value
     int value = 0;
 
-    // Map of neighbouring tiles, ordered from the positive x axis counterclockwise
-    std::map<int, Tile> neighbours;
-
     // Constructor
-    Tile(double angle, double dist);
+    Tile(double angle, double dist, int layer);
 };
 
 class Tiling {
@@ -37,16 +39,34 @@ public:
     double distStep = 0;
     double angleStep = 0;
 
-    // Radius of tiling
-    int tilingRadius = 1;
+    // Transform constants
+    double cos_pi_m = 0;
+    double cos_pi_n = 0;
+    double sin_pi_m = 0;
+    
+    // Hyperbolic distance constants
+    double cosh_d = 0;
+    double side_length = 0; 
 
-    // Array of tiles
-    Tile* Tesselation[];
+    // Radius of tiling
+    int tilingRadius = 0;
+
+    // Vector of tiles
+    std::vector<Tile*> Tesselation;
 
     // Constructor
     Tiling(int polygon_degree, int vertex_degree, int tiling_radius);
 
     void PrintData();
+
+    // Returns transform matrix to get to the desired neighbour
+    Algebra::Matrix<double> GetNeighborTransform(const Algebra::Matrix<double>& current, int edge_index);
+
+
+    Complex CalculateNeighbor(Complex Coord, int i);
+
+    // Checks whether a tile is being generated duplictely
+    bool IsTileDuplicate(Complex newCenter, const std::vector<Complex>& existing);
 
 private:
     // Validate the tiling
@@ -55,6 +75,8 @@ private:
     void InitDirectionality();
     // Calculate the coordinate system constants
     void InitCoordinateSystem();
+    // Calculate useful constants the notion of distance
+    void InitDistance();
     // Generate the tiles that make up the tiling
     void GenerateTesselation();
 };
