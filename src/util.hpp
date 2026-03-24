@@ -53,6 +53,15 @@ namespace Algebra {
 
         int size() const { return n; }
 
+        // Static method to create an NxN Identity Matrix
+        static Matrix<T> Identity(int size) {
+            Matrix<T> identity(size);
+            for (int i = 0; i < size; ++i) {
+                identity(i, i) = static_cast<T>(1);
+            }
+            return identity;
+        }
+
         // --- ALGEBRA OPERATORS ---
 
         // Addition: C = A + B
