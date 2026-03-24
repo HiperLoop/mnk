@@ -5,7 +5,7 @@ Tile::Tile(double angle, double dist, int layer) : Coord(std::polar(dist, angle)
 
 // Tiling constructor
 Tiling::Tiling(int polygon_degree, int vertex_degree, int tiling_radius) : 
-m(polygon_degree), n(vertex_degree), tilingRadius(tiling_radius), cos_pi_m(std::cos(M_PI / polygon_degree)), cos_pi_n(std::cos(M_PI / vertex_degree)), sin_pi_m(std::sin(M_PI / polygon_degree)) {
+m(polygon_degree), n(vertex_degree), tilingRadius(tiling_radius), cos_pi_m(std::cos(std::numbers::pi / polygon_degree)), cos_pi_n(std::cos(std::numbers::pi / vertex_degree)), sin_pi_m(std::sin(std::numbers::pi / polygon_degree)) {
     EvenPolygonCheck();
     InitDirectionality();
     InitCoordinateSystem();
@@ -40,7 +40,7 @@ void Tiling::InitDirectionality() {
 
 // Initialise coordinate system constants
 void Tiling::InitCoordinateSystem() {
-    angleStep = (2 * M_PI) / (shapeDir + shapeDiag);
+    angleStep = (2 * std::numbers::pi) / (shapeDir + shapeDiag);
     distStep = 2; // Make distStep 2x the raius of the circumscribed circle
 }
 
@@ -60,7 +60,7 @@ void Tiling::PrintData() {
 
     std::cout << "Coordinate system constants:\n";
     std::cout << std::format("distStep = {}\n", distStep);
-    std::cout << std::format("angleStep = {}\n", angleStep * 180 / M_PI); // Convert radians to degrees for better readability
+    std::cout << std::format("angleStep = {}\n", angleStep * 180 / std::numbers::pi); // Convert radians to degrees for better readability
 
     std::cout << "Tesselation parameters:\n";
     std::cout << std::format("number of tiles = {}\n", Tesselation.size());
@@ -96,7 +96,7 @@ Algebra::Matrix<double> createTranslation(double d) {
 // Get the matrix that moves you to the i-th neighbor
 Algebra::Matrix<double> Tiling::GetNeighborTransform(const Algebra::Matrix<double>& current, int edge_index) {
     // 1. Rotate to face the correct edge
-    Algebra::Matrix<double> rot = createRotation(edge_index * (2.0 * M_PI / m));
+    Algebra::Matrix<double> rot = createRotation(edge_index * (2.0 * std::numbers::pi / m));
     
     // 2. Translate by the side_length (step into the next polygon)
     Algebra::Matrix<double> trans = createTranslation(side_length);

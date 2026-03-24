@@ -11,7 +11,6 @@
 #include <numbers>
 
 using Complex = std::complex<double>;
-double M_PI = std::numbers::pi;
 
 class CustomException : public std::exception {
 private:
