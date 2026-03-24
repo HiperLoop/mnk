@@ -4,7 +4,7 @@ if exist mnk.exe del mnk.exe
 if exist *.o del *.o
 
 echo Compiling...
-g++ -std=c++17 main.cpp board.cpp util.cpp -o mnk.exe
+g++ -std=c++20 main.cpp board.cpp util.cpp -o mnk.exe
 
 if %errorlevel% neq 0 (
     echo.
