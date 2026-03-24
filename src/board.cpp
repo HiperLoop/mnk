@@ -27,7 +27,7 @@ void Tiling::InitDirectionality() {
 // Initialise coordinate system constants
 void Tiling::InitCoordinateSystem() {
     angleStep = Geometry::CoordinateAngleStep(m, n);
-
+    distStep = 2; // Make distStep 2x the raius of the circumscribed circle
 }
 
 // Print all the information about the tiling

@@ -21,10 +21,12 @@ public:
 };
 
 namespace Geometry {
+    // Checks if the space needs to be hyperbolic
     bool IsHyperbolic(int m, int n);
+    // Returns internal angle of the regular m-gons
     double PolygonInternalAngle(int n);
+    // Returns angle between playable directions
     double CoordinateAngleStep(int m, int n);
-
 };
 
 #endif
