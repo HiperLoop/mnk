@@ -3,6 +3,7 @@
 Tiling::Tiling(int polygon_degree, int vertex_degree) : m(polygon_degree), n(vertex_degree) {
     EvenPolygonCheck();
     InitDirectionality();
+    InitCoordinateSystem();
 }
 
 // This will throw an exception if tiling is of odd-sided polygons
@@ -40,5 +41,5 @@ void Tiling::PrintData() {
 
     std::cout << "Coordinate system constants:\n";
     std::cout << std::format("distStep = {}\n", distStep);
-    std::cout << std::format("angleStep = {}\n", angleStep);
+    std::cout << std::format("angleStep = {}\n", angleStep * 180 / M_PI); // Convert radians to degrees for better readability
 }
