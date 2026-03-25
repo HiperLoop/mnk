@@ -37,5 +37,9 @@ def Is_in_same_line_with_dir (p1 p2 : Coord) (dir : Int × Int) : Prop :=
   ∃ i j, i ≠ j ∧ p1 = (p1.1 + i * dir.1, p1.2 + i * dir.2) ∧
   p2 = (p1.1 + j * dir.1, p1.2 + j * dir.2)
 
+def are_consecutive (p1 p2 : Coord) (dir : Int × Int) : Prop :=
+  (p1.1 + dir.1, p1.2 + dir.2) = p2
+
 def Is_line (L : Set Coord) : Prop :=
   ∃ dir : Coord, (dir.1 ≠ 0 ∨ dir.2 ≠ 0) ∧ (∀ p1 ∈ L, ∀ p2 ∈ L, Is_in_same_line_with_dir p1 p2 dir)
+   ∧ (∀ p1 ∈ L, ∀ p2 ∈ L, p1 ≠ p2 → are_consecutive p1 p2 dir)
