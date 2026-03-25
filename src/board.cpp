@@ -4,9 +4,7 @@
 Tile::Tile(double angle, double dist, int layer) : Coord(std::polar(dist, angle)), layer(layer) {}
 
 // Tile destructor
-Tile::~Tile() {
-    //location.clear();
-}
+Tile::~Tile() {}
 
 // Tiling constructor
 Tiling::Tiling(int polygon_degree, int vertex_degree, int tiling_radius) : 
@@ -23,6 +21,7 @@ m(polygon_degree), n(vertex_degree), tilingRadius(tiling_radius), cos_pi_m(std::
 
 // Tiling destructor
 Tiling::~Tiling() {
+    // Clean up dynamically allocated tiles
     for (std::vector<Tile*>::iterator it = Tesselation.begin(); it != Tesselation.end(); ++it) {
         delete *it;
     }
@@ -50,9 +49,10 @@ void Tiling::InitDirectionality() {
 // Initialise coordinate system constants
 void Tiling::InitCoordinateSystem() {
     angleStep = (2 * std::numbers::pi) / (shapeDir + shapeDiag);
-    distStep = 2; // Make distStep 2x the raius of the circumscribed circle
+    distStep = 2; // Make distStep 2x the radius of the circumscribed circle
 }
 
+// Initialise useful constants related to the notion of distance in the tiling
 void Tiling::InitDistance() {
     cosh_d = (cos_pi_n + cos_pi_m * cos_pi_m) / (sin_pi_m * sin_pi_m);
     side_length = acosh(cosh_d);
@@ -81,11 +81,12 @@ void Tiling::PrintTilePositions() const {
     int prevLayer = 0;
     int counter = 0;
     for (const auto& tile : Tesselation) {
-        // Print distance and angle in degrees for better readability
+        // Print previous layer information when we move to a new layer
         if (prevLayer != tile->layer) {
             std::cout << std::format("Layer {} with size {}\n", prevLayer, counter);
             counter = 0;
         }
+        // Print distance and angle in degrees for better readability
         std::cout << std::format("Tile at layer {}: ({:.4f}, {:.4f})\n", tile->layer, std::abs(tile->Coord), std::arg(tile->Coord) * 180 / std::numbers::pi);
         counter++;
         prevLayer = tile->layer;
@@ -96,7 +97,7 @@ void Tiling::PrintTilePositions() const {
 
 // Returns a rotation matrix pointing to the desired angle
 Algebra::Matrix<double> createRotation(double theta) {
-    Algebra::Matrix<double> res(3); // Start with 1s on the diagonal
+    Algebra::Matrix<double> res(3);
     double c = std::cos(theta);
     double s = std::sin(theta);
 
@@ -122,7 +123,7 @@ Algebra::Matrix<double> createTranslation(double d, int m, int n) {
     } 
     else {
         // Standard Euclidean Translation
-        // We move along the X-axis by distance d
+        // We move along the X-axis by distance 1
         res(0, 0) = 1;  res(0, 1) = 0;  res(0, 2) = 2;
         res(1, 0) = 0;  res(1, 1) = 1;  res(1, 2) = 0;
         res(2, 0) = 0;  res(2, 1) = 0;  res(2, 2) = 1;
@@ -135,7 +136,6 @@ Algebra::Matrix<double> createTranslation(double d, int m, int n) {
 Algebra::Matrix<double> Tiling::GetNeighborTransform(const Algebra::Matrix<double>& current, int edge_index) {
     // 1. Rotate to face the correct edge
     Algebra::Matrix<double> rot = createRotation(edge_index * 2.0 * std::numbers::pi / m);
-    //Algebra::Matrix<double> rot = createRotation((edge_index * 2.0 * std::numbers::pi / m) + (std::numbers::pi / m));
 
     // 2. Rotation correction
     Algebra::Matrix<double> flip = createRotation(std::numbers::pi);
@@ -183,20 +183,24 @@ void Tiling::GenerateTesselation() {
     visited.insert(root->Coord);
     Tesselation.push_back(root);
 
+    // Breadth-first search to generate tiles layer by layer
     while (!frontier.empty()) {
         Tile* current = frontier.front();
         frontier.pop();
 
+        // If we've reached the desired tiling radius, stop expanding this tile's neighbors
         if (current->layer >= tilingRadius) continue;
 
         // Try to add 'm' neighbors for this regular m-gon
         for (int i = 0; i < m; ++i) {
-            // Logic to calculate neighbor coordinates based on 'i'
-            // This varies by tiling type (Square vs Hex vs Hyperbolic)
+            // Logic to calculate neighbor coordinates and transform matrix based on 'i'
             Complex neighborPos = CalculateNeighbor(current->location, i);
             Algebra::Matrix<double> neighbourMatrix = GetNeighborTransform(current->location, i);
 
+            // Check if the tile already exists to avoid duplicates
             if (!IsTileDuplicate(neighborPos, std::vector<Complex>(visited.begin(), visited.end()))) {
+                // If it's a new tile, add it to the visited set and the frontier for further expansion
+                // We also create a new Tile object and add it to the Tesselation vector
                 visited.insert(neighborPos);
                 Tile* next = new Tile(std::arg(neighborPos), std::abs(neighborPos), current->layer + 1);
                 next->location = neighbourMatrix;
