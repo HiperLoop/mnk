@@ -47,6 +47,7 @@ public:
     // Hyperbolic distance constants
     double cosh_d = 0;
     double side_length = 0; 
+    double centreDistance = 0;
 
     // Radius of tiling
     int tilingRadius = 0;
@@ -61,6 +62,8 @@ public:
     ~Tiling();
 
     void PrintData();
+
+    void PrintTilePositions() const;
 
     // Returns transform matrix to get to the desired neighbour
     Algebra::Matrix<double> GetNeighborTransform(const Algebra::Matrix<double>& current, int edge_index);
