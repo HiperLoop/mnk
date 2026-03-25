@@ -26,7 +26,7 @@ theorem pairing_prevents_win_1D {k : ℕ} (S : Pairing_strategy_1D k)
 Proves that given a pairing strategy that has disjoint pairs and
 blocks all winning directions the game is a draw in 2D.
 -/
-  theorem pairing_prevents_win_2D {k : ℕ} (S : Pairing_strategy_2D k)
+theorem pairing_prevents_win_2D {k : ℕ} (S : Pairing_strategy_2D k)
   (occupied_x occupied_o : Set Coord)
   (h_no_overlap : ∀ z, z ∈ occupied_x → z ∈ occupied_o → False)
   (h_mirror : ∀ s ∈ S.pairs, ∀ a b, a ≠ b → s = {a, b} → (a ∈ occupied_x ↔ b ∈ occupied_o)) :
