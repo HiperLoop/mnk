@@ -4,11 +4,14 @@
 using namespace std;
 
 int main() {
-    Tiling test1(4, 5, 1);
+    Tiling test1(4, 5, 2);
     test1.PrintData();
-    Tiling test2(6, 3, 1);
+    test1.PrintTilePositions();
+    Tiling test2(6, 3, 2);
     test2.PrintData();
-    Tiling test3(4, 4, 1);
+    //test2.PrintTilePositions();
+    Tiling test3(4, 4, 3);
     test3.PrintData();
+    //test3.PrintTilePositions();
     return 0;
 }
