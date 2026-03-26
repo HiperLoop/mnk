@@ -19,3 +19,6 @@ https://link.springer.com/article/10.1007/BF01895716
 https://www.sciencedirect.com/science/article/pii/0097316573900058?utm_source=chatgpt.com
 
 https://combinatorica.hu/~p_erdos/1978-06.pdf
+
+Proof that k-in a row on {4, 4}^8 is a draw.
+https://www.jstor.org/stable/2321433
