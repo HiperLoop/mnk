@@ -1,3 +1,53 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{10}
+
+\bibitem{beck_1981_vdw_ramsey_games}
+J{\'o}zsef Beck.
+\newblock Van der waerden and ramsey type games.
+\newblock 1(2):103--116, 1981.
+
+\bibitem{beck_2008_combinatorial_games}
+J{\'o}zsef Beck.
+\newblock {\em Combinatorial Games: Tic-Tac-Toe Theory}.
+\newblock Cambridge University Press, 2008.
+
+\bibitem{berlekamp_conway_guy_2003_winning_ways_v3}
+Elwyn~R. Berlekamp, John~H. Conway, and Richard~K. Guy.
+\newblock {\em Winning Ways for Your Mathematical Plays, Volume 3}.
+\newblock A K Peters, 2 edition, 2003.
+
+\bibitem{erdos_1978_combinatorial_problems}
+Paul Erd{\H{o}}s.
+\newblock Combinatorial problems and games.
+\newblock 1978.
+
+\bibitem{erdos_selfridge_1961}
+Paul Erd{\H{o}}s and John~L. Selfridge.
+\newblock On a combinatorial game.
+\newblock 12(6):876--881, 1961.
+
+\bibitem{erdos_selfridge_1973}
+Paul Erd{\H{o}}s and John~L. Selfridge.
+\newblock On a ramsey-type problem.
+\newblock 14(3):298--301, 1973.
+
+\bibitem{hales_jewett_1963}
+Alfred~W. Hales and Robert~I. Jewett.
+\newblock Regularity and positional games.
+\newblock 106(2):222--229, 1963.
+
+\bibitem{hefetz_krivelevich_stojakovic_szabo_2008}
+Dan Hefetz, Michael Krivelevich, Milo{\v{s}} Stojakovi{\'c}, and Tibor Szab{\'o}.
+\newblock Avoider--enforcer games.
+\newblock 15(1):R42, 2008.
+
+\bibitem{hogg_antwerp_tool}
+Tim Hogg.
+\newblock Antwerp game configuration tool, 2020.
+\newblock Online interactive tool.
+
+\bibitem{kruczek_et_al_2017_set_matching}
+Nick Kruczek, Carl Sundberg, et~al.
+\newblock Set matching: An enhancement of the hales--jewett pairing strategy.
+\newblock 2017.
 
 \end{thebibliography}

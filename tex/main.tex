@@ -67,6 +67,8 @@
 \newcommand{\mbeq}{\overset{!}{=}}
 \newcommand{\ko}{\frac{1}{4\pi \epsilon_0}}
 
+\newcommand{\PATH}{figures/}
+
 \begin{document}
     \begin{center}
         \vspace*{1cm}
@@ -134,7 +136,7 @@ For the case $k = 2$ P1 has a winning strategy. We can see that the $\{2, \infty
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\linewidth]{figures/{2, infty}^2_win.png}
+    \includegraphics[width=0.5\linewidth]{\PATH{2, infty}^2_win.png}
     \caption{Drawing of the winning strategy for $\{2, \infty\}^2$.}
     \label{fig:{2, infty}-2}
 \end{figure}
@@ -143,7 +145,7 @@ For the case $k = 2$ P1 has a winning strategy. We can see that the $\{2, \infty
 For the case $k > 2$ We can show this using a simple pairing argument where we tile the space as in Figure \ref{fig:{2, infty}}.
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.5\linewidth]{figures/{2, infty}_pair.png}
+    \includegraphics[width=0.5\linewidth]{\PATH{2, infty}_pair.png}
     \caption{Drawing of the pairing strategy for $\{2, \infty\}^3$.}
     \label{fig:{2, infty}}
 \end{figure}\\
@@ -154,23 +156,32 @@ Since the vertex degree in this tiling is odd, we will not consider diagonals.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.5\linewidth]{figures/{6, 3} - 9 (parity).png}
-    \caption{Drawing of the pairing strategy for $\{6, 3\}^9$.}
-    \label{fig:{6, 3}-9}
+    \includegraphics[width=0.5\linewidth]{\PATH 6_3_7-tiling.png}
+    \caption{Drawing of the pairing strategy for $\{6, 3\}^7$.}
+    \label{fig:{6, 3}-7}
 \end{figure}
 
-Figure \ref{fig:{6, 3}-9} shows a winning breaker strategy for the $\{6, 3\}^9$ game.\\
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\linewidth]{\PATH 6_3-tile.png}
+    \caption{One repeating tile in the drawing $\{6, 3\}^7$ tiling.}
+    \label{fig:{6, 3}-7-tile}
+\end{figure}
+
+Figure \ref{fig:{6, 3}-7} shows a winning breaker strategy for the $\{6, 3\}^7$ game. The lines represent pairs like in a regular pairing strategy.
+The rest is tiled by the 4x3 rhombuses. A zoomed in version of one of these tiles is in Figure \ref{fig:{6, 3}-7-tile}.
+The couloured lines represent all the directions in which breaker has to play at least once to win.\\
 \textbf{NEEDS PROOF FOR $k < 5$.}\\
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\linewidth]{figures/{6, 3}_win4.png}
+    \includegraphics[width=0.5\linewidth]{\PATH{6, 3}_win4.png}
     \caption{Forced Winning configuration (up to symmetry) for $\{6, 3\}^4.$}
     \label{fig:6, 3 - win 4}
 \end{figure}
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.5\linewidth]{figures/{6, 3}_last_moves-4.png}
+    \includegraphics[width=0.5\linewidth]{\PATH{6, 3}_last_moves-4.png}
     \caption{Threat illustration for $\{6, 3\}^4$.}
     \label{fig:6, 3 - threats 4}
 \end{figure}
@@ -182,5 +193,6 @@ There is an infinite amount of hyperbolic tilings. We will therefore look at som
 
 \newpage
 \bibliographystyle{plain}
+\nocite{*}
 \bibliography{bibliography}
 \end{document}
