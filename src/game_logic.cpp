@@ -72,3 +72,10 @@ bool GameLogic::ApplyMove(int playerId, Tile& tile) {
     tile.value = playerId;
     return true;
 }
+
+// Set the value of all tiles in a tesselation to be unoccupied (0)
+void GameLogic::ResetBoard(Tiling& board) {
+    for (Tile* tile : board.Tesselation) {
+        tile->value = 0; // Reset all tiles to unoccupied
+    }
+}

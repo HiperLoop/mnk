@@ -15,6 +15,9 @@ namespace GameLogic {
 
     // Function to apply a player's move to the board
     bool ApplyMove(int playerId, Tile& tile);
+
+    // Function to reset the board to an empty state
+    void ResetBoard(Tiling& board);
 };
 
 #endif
