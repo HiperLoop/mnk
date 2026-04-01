@@ -1,3 +1,5 @@
+!!DO NOT CHANGE LINK ORDER!!
+
 https://bobson.ludost.net/copycrime/Winning%20Ways%202nd%20Edition/Winning.Ways.for.Your.Mathematical.Plays.V3--1568811438.pdf
 
 https://www.researchgate.net/publication/315109500_Set_Matching_An_Enhancement_of_the_Hales-Jewett_Pairing_Strategy
@@ -18,5 +20,4 @@ https://link.springer.com/article/10.1007/BF01895716
 
 https://combinatorica.hu/~p_erdos/1978-06.pdf
 
-Proof that k-in a row on {4, 4}^8 is a draw.
 https://www.jstor.org/stable/2321433
