@@ -84,6 +84,8 @@ In this paper, Erdős returns to the themes of his 1973 work, focusing on the "s
 
 He specifically looks at $n \times n$ boards and asks: "What is the maximum number of winning lines a game can have such that the Breaker can still force a draw?" He provides asymptotic bounds and conjectures on the nature of **"Random Games,"** where the winning lines are chosen at random rather than through a geometric grid.
 
+---
+
 ## 11. The Game of Tic-Tac-Toe (k=8)
 
 **Author:** T. G. L. Zetters (1980)  
