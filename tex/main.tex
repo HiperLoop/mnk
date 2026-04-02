@@ -3,11 +3,15 @@
 \usepackage[margin=2cm,includefoot]{geometry}
 \usepackage{booktabs}
 \usepackage{graphicx}
-\usepackage{amsmath, amssymb, amsthm}
+\usepackage{amsmath, amssymb, amsthm, amsfonts}
 \usepackage{physics}
 \usepackage[shortlabels]{enumitem}
 \usepackage{cancel}
 \usepackage{lastpage}
+\usepackage{tabularx}
+\usepackage{makecell}
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
 
 \usepackage{hyperref}
 \hypersetup{
@@ -128,6 +132,95 @@ A pairing strategy is a strategy for Breaker where Breaker pairs up positions on
 No spherical tilings since they are all finite and do not form an infinite playing board.
 
 The proof for any tiling with $k = 1$ is trivial as the first player wins by making any move.
+
+\noindent
+\begin{footnotesize}
+\begin{tabular}{|c||C{0.65in}|C{0.65in}|C{0.65in}|C{0.65in}|C{0.65in}|C{0.65in}|C{0.65in}|C{0.65in}|}
+\hline
+\textbf{m \textbackslash n} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{$\infty$} \\ \hline \hline
+
+\textbf{2} & 
+\makecell{$\{2,2\}$ \\ Spherical} & 
+\makecell{$\{2,3\}$ \\ Spherical} & 
+\makecell{$\{2,4\}$ \\ Spherical} & 
+\makecell{$\{2,5\}$ \\ Spherical} & 
+\makecell{$\{2,6\}$ \\ Spherical} & 
+\makecell{$\{2,7\}$ \\ Spherical} & 
+\makecell{$\{2,8\}$ \\ Spherical} & 
+\makecell{$\{2,\infty\}$ \\ Euclidean} \\ \hline
+
+\textbf{3} & 
+\makecell{$\{3,2\}$ \\ Spherical} & 
+\makecell{$\{3,3\}$ \\ Platonic} & 
+\makecell{$\{3,4\}$ \\ Platonic} & 
+\makecell{$\{3,5\}$ \\ Platonic} & 
+\makecell{$\{3,6\}$ \\ Euclidean} & 
+\makecell{$\{3,7\}$ \\ Hyperbolic} & 
+\makecell{$\{3,8\}$ \\ Hyperbolic} & 
+\makecell{$\{3,\infty\}$ \\ Paracompact} \\ \hline
+
+\textbf{4} & 
+\makecell{$\{4,2\}$ \\ Spherical} & 
+\makecell{$\{4,3\}$ \\ Platonic} & 
+\makecell{$\{4,4\}$ \\ Euclidean} & 
+\makecell{$\{4,5\}$ \\ Hyperbolic} & 
+\makecell{$\{4,6\}$ \\ Hyperbolic} & 
+\makecell{$\{4,7\}$ \\ Hyperbolic} & 
+\makecell{$\{4,8\}$ \\ Hyperbolic} & 
+\makecell{$\{4,\infty\}$ \\ Paracompact} \\ \hline
+
+\textbf{5} & 
+\makecell{$\{5,2\}$ \\ Spherical} & 
+\makecell{$\{5,3\}$ \\ Platonic} & 
+\makecell{$\{5,4\}$ \\ Hyperbolic} & 
+\makecell{$\{5,5\}$ \\ Hyperbolic} & 
+\makecell{$\{5,6\}$ \\ Hyperbolic} & 
+\makecell{$\{5,7\}$ \\ Hyperbolic} & 
+\makecell{$\{5,8\}$ \\ Hyperbolic} & 
+\makecell{$\{5,\infty\}$ \\ Paracompact} \\ \hline
+
+\textbf{6} & 
+\makecell{$\{6,2\}$ \\ Spherical} & 
+\makecell{$\{6,3\}$ \\ Euclidean} & 
+\makecell{$\{6,4\}$ \\ Hyperbolic} & 
+\makecell{$\{6,5\}$ \\ Hyperbolic} & 
+\makecell{$\{6,6\}$ \\ Hyperbolic} & 
+\makecell{$\{6,7\}$ \\ Hyperbolic} & 
+\makecell{$\{6,8\}$ \\ Hyperbolic} & 
+\makecell{$\{6,\infty\}$ \\ Paracompact} \\ \hline
+
+\textbf{7} & 
+\makecell{$\{7,2\}$ \\ Spherical} & 
+\makecell{$\{7,3\}$ \\ Hyperbolic} & 
+\makecell{$\{7,4\}$ \\ Hyperbolic} & 
+\makecell{$\{7,5\}$ \\ Hyperbolic} & 
+\makecell{$\{7,6\}$ \\ Hyperbolic} & 
+\makecell{$\{7,7\}$ \\ Hyperbolic} & 
+\makecell{$\{7,8\}$ \\ Hyperbolic} & 
+\makecell{$\{7,\infty\}$ \\ Paracompact} \\ \hline
+
+\textbf{8} & 
+\makecell{$\{8,2\}$ \\ Spherical} & 
+\makecell{$\{8,3\}$ \\ Hyperbolic} & 
+\makecell{$\{8,4\}$ \\ Hyperbolic} & 
+\makecell{$\{8,5\}$ \\ Hyperbolic} & 
+\makecell{$\{8,6\}$ \\ Hyperbolic} & 
+\makecell{$\{8,7\}$ \\ Hyperbolic} & 
+\makecell{$\{8,8\}$ \\ Hyperbolic} & 
+\makecell{$\{8,\infty\}$ \\ Paracompact} \\ \hline
+
+\textbf{$\infty$} & 
+\makecell{$\{\infty,2\}$ \\ Euclidean} & 
+\makecell{$\{\infty,3\}$ \\ Paracompact} & 
+\makecell{$\{\infty,4\}$ \\ Paracompact} & 
+\makecell{$\{\infty,5\}$ \\ Paracompact} & 
+\makecell{$\{\infty,6\}$ \\ Paracompact} & 
+\makecell{$\{\infty,7\}$ \\ Paracompact} & 
+\makecell{$\{\infty,8\}$ \\ Paracompact} & 
+\makecell{$\{\infty,\infty\}$ \\ Paracompact} \\ \hline
+
+\end{tabular}
+\end{footnotesize}
 
 \subsection{Euclidean tilings}
 The only regular tilings of Euclidean space are $\{2, \infty\}, \{3, 6\}, \{4, 4\}, \{6, 3\}, \{\infty, 2\}$. We do not look at the $\{\infty, 2\}$ tiling as it does not provide an infinite playing board. We also exclude the $ \{3, 6\}$ tiling as it does not satisfy condition \ref{m_condition}. Finally, we also do not spend too much time looking at the $\{4, 4\}$ tiling as this is the case with regular $m, n, k$-games and has been studied extensively. We are left with the $\{2, \infty\}$ and $\{6, 3\}$ tilings, which we take a close look at.
