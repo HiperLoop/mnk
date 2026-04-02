@@ -21,3 +21,9 @@ https://link.springer.com/article/10.1007/BF01895716
 https://combinatorica.hu/~p_erdos/1978-06.pdf
 
 https://www.jstor.org/stable/2321433
+
+https://tromp.github.io/c4/connect4_thesis.pdf
+
+https://www.researchgate.net/publication/2252447_Go-Moku_and_Threat-Space_Search
+
+http://fragrieu.free.fr/SearchingForSolutions.pdf

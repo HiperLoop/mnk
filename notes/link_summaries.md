@@ -108,3 +108,51 @@ This paper provides a definitive constructive proof for the $m,n,k$-game where $
 
 ### Significance in Combinatorial Game Theory
 The Zetters proof is a classic example of **constructive combinatorics**. It is frequently cited alongside József Beck’s work because it moves from abstract "potential function" strategies to a manual, playable strategy. It remains a fundamental benchmark in the study of positional games and the mathematical limits of the first-player advantage on infinite grids.
+
+## 12. Solving Connect 4 (Master's Thesis)
+**Author:** John Tromp (1995)
+
+**Overview:**
+This thesis details the computational proof that **Connect 4** (played on the standard $7 \times 6$ board) is a forced win for the first player if they start in the center column. Tromp’s work is a landmark in AI, as it moved the game from "expert-level play" to being "mathematically solved."
+
+**Key Methodologies:**
+* **Knowledge-Based vs. Search-Based:** Tromp combines human-expert knowledge (specific opening patterns and endgame rules) with a high-performance search engine.
+* **Transposition Tables:** To handle the $4.5 \times 10^{12}$ possible positions, Tromp utilized sophisticated transposition tables to store previously evaluated states, preventing the redundant calculation of identical board positions reached through different move orders.
+* **Database Partitioning:** The search was broken down by the number of stones on the board. By solving the "endgame" (boards with many stones) first and working backward, the program could recognize a win or loss much earlier in the search tree.
+* **Alpha-Beta Pruning:** The thesis implements an optimized Alpha-Beta search, enhanced by move-ordering heuristics (trying the most promising moves first) to prune massive branches of the game tree.
+
+**Significance:**
+Tromp’s work provided the first publicly verifiable proof of the game's outcome. It demonstrated that even with a relatively large state space, clever memory management and symmetry reductions could make a game "solvable" on 1990s-era hardware.
+
+---
+
+## 13. Go-Moku and Threat-Space Search
+**Authors:** L. Victor Allis, H.J. van den Herik, and M.P.H. Huntjens
+
+**Overview:**
+This paper introduces **Threat-Space Search (TSS)**, a specialized search algorithm designed to solve games with complex winning patterns, specifically **Go-Moku** (5-in-a-row on a $15 \times 15$ or $19 \times 19$ board). The authors proved that Go-Moku is a forced win for the first player.
+
+**Key Methodologies:**
+* **Threat-Space Analysis:** Instead of a traditional minimax search that looks at all legal moves, TSS focuses exclusively on "threats"—moves that force the opponent to respond (e.g., creating an open-ended four-in-a-row).
+* **Dependency Graphs:** The algorithm builds a graph of threats to see if a sequence of forcing moves exists that eventually leads to an "unblockable" win (a double threat).
+* **Proof-Number Search (pn-search):** The paper highlights the use of pn-search to navigate the game tree. Unlike Alpha-Beta, which explores depth, pn-search expands the "most proving" nodes—those that are most likely to establish a definitive win or draw.
+* **Solving the Game:** By applying TSS, the authors demonstrated that the first player can force a win regardless of the second player's defense, provided the board is at least $15 \times 15$.
+
+**Significance:**
+This paper revolutionized AI for "Maker-Maker" games. Threat-Space Search is now a standard technique for solving any game where winning depends on a sequence of forced responses, such as Renju or various $m,n,k$-games.
+
+---
+
+## 14. Searching for Solutions in Games and Artificial Intelligence
+**Author:** L. Victor Allis (Ph.D. Dissertation, 1994)
+
+**Overview:**
+Often cited as one of the most important PhD theses in computer game theory, Allis explores the general principles of "solving" games. He defines three levels of "solved": **Ultra-weakly solved** (outcome is known), **Weakly solved** (strategy exists for a win from the start), and **Strongly solved** (strategy exists for every possible legal position).
+
+**Key Methodologies:**
+* **Algorithm Development:** Allis formally introduces and analyzes **Proof-Number Search (pn-search)**. He demonstrates that for games with high branching factors but shallow solution depths, pn-search is vastly superior to Alpha-Beta.
+* **Case Studies (Connect 4, Qubic, Go-Moku):** The dissertation provides the mathematical frameworks used to solve these three distinct games. For **Qubic** ($4 \times 4 \times 4$ Tic-Tac-Toe), he proves a first-player win using a combination of knowledge-based rules and search.
+* **The "Conspiracy Number" Algorithm:** Allis discusses search techniques that minimize the "conspiracy" (the number of leaf nodes that must change value to change the root value), a precursor to many modern heuristic search methods.
+
+**Significance:**
+Allis’s dissertation essentially created the "road map" for solving games. It provides the theoretical foundation for how AI can tackle games that are too large for brute force but have underlying structural properties (like threats or symmetries) that can be exploited.
