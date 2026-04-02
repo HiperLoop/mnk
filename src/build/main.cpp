@@ -1,5 +1,5 @@
 #include <string>
-#include "board.hpp"
+#include "../background_logic/board.hpp"
 
 using namespace std;
 
