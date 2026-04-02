@@ -100,12 +100,6 @@
 \newpage
 
 \section{Introduction}
-\subsection{Insights}
-In $\{m, n\}$ tiling let 
-\begin{align}
-    m = 2i: i\in \N. \label{m_condition}
-\end{align}
-It matters so that there ale straight lines going through the shapes. Then in $n = 2j + 1$ tilings, diagonals do not make sense. In $n = 2j$ tilings, however, diagonals make sense. We then distinguish between a $\{m, n = 2j\}_m$ and $\{m, n = 2j\}_{vn}$ configurations named after the Moore (M) and Von Neumann (VN) neighbourhoods. The Moore version permitting diagonals to be used and the Von Neumann version only permitting edge-connected series. The classical tic-tac-toe is then played on a $\{4, 4\}_m$ board. In the spirit of $m,n,k$ games we include also the the length of the winning sequence as follows: $\{m, n\}^k$. The number of axis that you can win on then becomes $m$ in the M configuration and $m/2$ in the VN configuration.
 
 \subsection{Notation}
 
@@ -120,13 +114,23 @@ $(1, 1, 1)$ where each player occupies 1 position in a move. $(1, 2, 2)$ where t
 In a Maker-Breaker game, the Maker is the player trying to achieve the winning objective and Breaker is the player trying to stop the Maker from achieving this.
 
 \subsubsection{Insights into Maker-Maker games}
-If a $k$-game is a Breaker win, we know that the original Maker-Maker version is a draw.
+If a $k$-game is a Breaker win in the Maker-Breaker version, we know that the original Maker-Maker version is a draw.
+Conversely if a $k$-game is a Maker win in the Maker-Breaker version, we cannot tell anything about the original Maker-Maker variant.
+Thereofre to prove Maker wins, we have to show them in the Maker-Maker version.
+
 
 \subsubsection{Strategy stealing argument for $(1, 1, 1)$}
 In a Maker-Maker game, if there was a strategy such that P2 would have a winning strategy, P1 could just steal the strategy in a way where P1 would make a random move and then effectively play the role of P2 and employ that winning strategy. This is a contradiction as both P1 and P2 have a winning strategy. Therefore only P1 can have a winning strategy.
 
 \subsubsection{Pairing strategies}
 A pairing strategy is a strategy for Breaker where Breaker pairs up positions on the board in such a way that if Maker occupies one position in a pair, Breaker can immediately occupy the other position in the pair and thus prevent Maker from winning. If Breaker can successfully create such a pairing strategy that covers all possible winning combinations for Maker, then Breaker has a winning strategy.
+
+\subsection{Insights}
+In $\{m, n\}$ tiling let 
+\begin{align}
+    m = 2i: i\in \N. \label{m_condition}
+\end{align}
+It matters so that there ale straight lines going through the shapes. Then in $n = 2j + 1$ tilings, diagonals do not make sense. In $n = 2j$ tilings, however, diagonals make sense. We then distinguish between a $\{m, n = 2j\}_m$ and $\{m, n = 2j\}_{vn}$ configurations named after the Moore (M) and Von Neumann (VN) neighbourhoods. The Moore version permitting diagonals to be used and the Von Neumann version only permitting edge-connected series. The classical tic-tac-toe is then played on a $\{4, 4\}_m$ board. In the spirit of $m,n,k$ games we include also the the length of the winning sequence as follows: $\{m, n\}^k$. The number of axis that you can win on then becomes $m$ in the M configuration and $m/2$ in the VN configuration.
 
 \section{Tiling spaces}
 No spherical tilings since they are all finite and do not form an infinite playing board.
