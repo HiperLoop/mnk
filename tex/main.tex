@@ -235,9 +235,15 @@ All spherical tilings are finite and therefore do not provide an infinite playin
 The $\{m, 2\}$ tilings consist of only 2 playable polygons, and therefore the game is a trivial draw for $k > 1$ as both of the players occupy exactly one of the polygons.
 \subsubsection{The $\{2, n\}$ tilings}
 Proof is the same as for the $\{2, \infty\}$ tiling.
+\subsection{Platonic tilings}
+Platonic tilings are a subset of phericla tilings that result in the platonic solids. They are the $\{3, 3\}, \{3, 4\}, \{3, 5\}, \{4, 3\}, \{5, 3\}$ tilings and correspond to the tetrahedron, octahedron, icosahedron, cube and dodecahedron respectively.
 \subsubsection{The $\{3, 3\}$ tiling}
 The $\{3, 3\}$ tiling consists of 4 playable polygons. The game is a trivial draw for $k > 2$ as both of the players occupy exactly two of the polygons. Since all the polygons are adjecent to all the others, it is a win for P1 for $k \le 2$.
-
+\subsubsection{The $\{3, 4\}$ tiling}
+The $\{3, 4\}$ tiling consists of 8 playable polygons. The game is a trivial draw for $k > 4$ as both of the players occupy exactly four of the polygons. A simple minimax exploration fo the whole game tree shows that it is a win for P1 for $k \le 4$.
+\subsubsection{The $\{3, 5\}$ tiling}
+\subsubsection{The $\{4, 3\}$ tiling}
+\subsubsection{The $\{5, 3\}$ tiling}
 \subsection{Euclidean tilings}
 The only regular tilings of Euclidean space are $\{2, \infty\}, \{3, 6\}, \{4, 4\}, \{6, 3\}, \{\infty, 2\}$. We do not look at the $\{\infty, 2\}$ tiling as it does not provide an infinite playing board. We also exclude the $ \{3, 6\}$ tiling as it does not satisfy condition \ref{m_condition}. Finally, we also do not spend too much time looking at the $\{4, 4\}$ tiling as this is the case with regular $m, n, k$-games and has been studied extensively. We are left with the $\{2, \infty\}$ and $\{6, 3\}$ tilings, which we take a close look at.
 
