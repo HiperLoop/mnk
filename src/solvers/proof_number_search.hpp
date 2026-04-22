@@ -6,8 +6,8 @@ namespace Proof_Number_Search {
     bool proofNumberSearch(Tiling* tiling, int playerId, int maxDepth);
 
     // Eval function for proof number search
-    double moveEvalFunction(Tile& target, int playerId, Tiling* tiling);
+    double moveEvalFunction(Tile& target, int playerId, Tiling* tiling, int win_length, int depth, int maxDepth);
 
     // Move selection function for proof number search
-    Tile* moveSelectionFunction(Tiling* tiling, int playerId);
+    std::vector<Tile*> moveSelectionFunction(Tiling* tiling, int playerId);
 }
