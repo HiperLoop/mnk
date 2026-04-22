@@ -1,19 +1,19 @@
 #include "solvers.hpp"
 
-Solver::Solver(Tiling* tiling, int win_length, bool is_maker_maker, bool is_two_player, double (*move_eval_function)(Tile&), std::vector<Tile*> (*move_selection_function)(Tiling* tiling), int max_depth) 
+Solver::Solver(Tiling* tiling, int win_length, bool is_maker_maker, bool is_two_player, double (*move_eval_function)(Tile& target, int playerId, Tiling* tiling), std::vector<Tile*> (*move_selection_function)(Tiling* tiling, int playerId), int max_depth) 
     : tiling(tiling), win_length(win_length), is_maker_maker(is_maker_maker), is_two_player(is_two_player), move_eval_function(move_eval_function), move_selection_function(move_selection_function), max_depth(max_depth) {}
 
 Solver::~Solver() {     
     // Free any resources if necessary (currently none)
 }
 
-Tile * Solver::selectBestMove(Tiling * tiling) {
-    std::vector<Tile*> possible_moves = move_selection_function(tiling);
+Tile * Solver::selectBestMove(Tiling * tiling, int playerId) {
+    std::vector<Tile*> possible_moves = move_selection_function(tiling, playerId);
     Tile* best_move = nullptr;
     double best_score = -std::numeric_limits<double>::infinity();
 
     for (Tile* move : possible_moves) {
-        double score = move_eval_function(*move);
+        double score = move_eval_function(*move, playerId, tiling);
         if (score > best_score) {
             best_score = score;
             best_move = move;
@@ -24,7 +24,7 @@ Tile * Solver::selectBestMove(Tiling * tiling) {
 }
 
 bool Solver::performPly(int playerId) {
-    Tile* best_move = selectBestMove(tiling);
+    Tile* best_move = selectBestMove(tiling, playerId);
     if (best_move != nullptr) {
         GameLogic::ApplyMove(playerId, *best_move); // Apply the move for the given player ID
     }
