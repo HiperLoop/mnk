@@ -122,7 +122,6 @@ If a $k$-game is a Breaker win in the Maker-Breaker version, we know that the or
 Conversely if a $k$-game is a Maker win in the Maker-Breaker version, we cannot tell anything about the original Maker-Maker variant.
 Thereofre to prove Maker wins, we have to show them in the Maker-Maker version.
 
-
 \subsubsection{Strategy stealing argument for $(1, 1, 1)$}
 In a Maker-Maker game, if there was a strategy such that P2 would have a winning strategy, P1 could just steal the strategy in a way where P1 would make a random move and then effectively play the role of P2 and employ that winning strategy. This is a contradiction as both P1 and P2 have a winning strategy. Therefore only P1 can have a winning strategy.
 
@@ -229,6 +228,15 @@ The proof for any tiling with $k = 1$ is trivial as the first player wins by mak
 
 \end{tabular}
 \end{footnotesize}
+
+\subsection{Spherical tilings}
+All spherical tilings are finite and therefore do not provide an infinite playing board.
+\subsubsection{The $\{m, 2\}$ tilings}
+The $\{m, 2\}$ tilings consist of only 2 playable polygons, and therefore the game is a trivial draw for $k > 1$ as both of the players occupy exactly one of the polygons.
+\subsubsection{The $\{2, n\}$ tilings}
+Proof is the same as for the $\{2, \infty\}$ tiling.
+\subsubsection{The $\{3, 3\}$ tiling}
+The $\{3, 3\}$ tiling consists of 4 playable polygons. The game is a trivial draw for $k > 2$ as both of the players occupy exactly two of the polygons. Since all the polygons are adjecent to all the others, it is a win for P1 for $k \le 2$.
 
 \subsection{Euclidean tilings}
 The only regular tilings of Euclidean space are $\{2, \infty\}, \{3, 6\}, \{4, 4\}, \{6, 3\}, \{\infty, 2\}$. We do not look at the $\{\infty, 2\}$ tiling as it does not provide an infinite playing board. We also exclude the $ \{3, 6\}$ tiling as it does not satisfy condition \ref{m_condition}. Finally, we also do not spend too much time looking at the $\{4, 4\}$ tiling as this is the case with regular $m, n, k$-games and has been studied extensively. We are left with the $\{2, \infty\}$ and $\{6, 3\}$ tilings, which we take a close look at.
