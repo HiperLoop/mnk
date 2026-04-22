@@ -31,7 +31,7 @@ The pairing strategy proofs of draws are formalised in Lean (**TODO**) to ensure
 The C++ code is use to apply various tree-traversal or solving algorithms to the game variants to potentially find a winning strategy. These algorithms include:
 
 - Proof number search (Mainly for sherical and platonic tilings with relatively small finite search spaces)
-- Dependency based search (Used for redced infinite tilings)
+- Dependency based search (Used for reduced infinite tilings)
 - **TODO**
 
 They have been proven to produce an unstoppable strategy and thus serve as proofs for the lower $k$-bound in the game-solving process.
