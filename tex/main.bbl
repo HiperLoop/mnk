@@ -1,5 +1,16 @@
 \begin{thebibliography}{10}
 
+\bibitem{Allis1994}
+L.~Victor Allis.
+\newblock {\em Searching for Solutions in Games and Artificial Intelligence}.
+\newblock PhD thesis, University of Limburg, Maastricht, Netherlands, 1994.
+\newblock Available at \url{http://fragrieu.free.fr/SearchingForSolutions.pdf}.
+
+\bibitem{Allisetal1993}
+L.~Victor Allis, H.~Jaap van~den Herik, and Jos W. H.~M. Uiterwijk.
+\newblock Go-moku and threat-space search.
+\newblock In {\em Proceedings of the 13th International Joint Conference on Artificial Intelligence (IJCAI-93)}, pages 225--230, Chambéry, France, 1993. Morgan Kaufmann.
+
 \bibitem{beck_1981_vdw_ramsey_games}
 J{\'o}zsef Beck.
 \newblock Van der waerden and ramsey type games.
@@ -54,5 +65,11 @@ Tim Hogg.
 Nick Kruczek, Carl Sundberg, et~al.
 \newblock Set matching: An enhancement of the hales--jewett pairing strategy.
 \newblock 2017.
+
+\bibitem{Tromp1995}
+John Tromp.
+\newblock The game of {Connect-4}.
+\newblock Master's thesis, University of Amsterdam, Amsterdam, Netherlands, 1995.
+\newblock Available at \url{https://tromp.github.io/c4/connect4_thesis.pdf}.
 
 \end{thebibliography}
