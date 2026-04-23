@@ -95,220 +95,219 @@
         University
 
     \end{center}
-\newpage
-\tableofcontents
-\newpage
+    \newpage
+    \tableofcontents
+    \newpage
 
-\section{Introduction}
+    \section{Introduction}
 
-\subsection{Notation}
+        \subsection{Notation}
 
-\subsubsection{Schläfli symbol}
+            \subsubsection{Schläfli symbol}
 
-The Schläfli symbol is used to compactly denote any regular polytope or tessellation. For our case it will be of the form $\{p, q\}$, where $\{p\}$ is a regular $p$-sided polygon and $q$ is the number of these polygons joined at each vertex.
+                The Schläfli symbol is used to compactly denote any regular polytope or tessellation. For our case it will be of the form $\{p, q\}$, where $\{p\}$ is a regular $p$-sided polygon and $q$ is the number of these polygons joined at each vertex.
 
-\subsubsection{$mnk$-notation}
+            \subsubsection{$mnk$-notation}
 
-To denote a game variant played on a $\{m, n\}$ tiling with the winning objective of getting $k$ in a row, we will use the notation $\{m, n\}^k$. For example, the classical tic-tac-toe game is denoted as $\{4, 4\}^3$.
+                To denote a game variant played on a $\{m, n\}$ tiling with the winning objective of getting $k$ in a row, we will use the notation $\{m, n\}^k$. For example, the classical tic-tac-toe game is denoted as $\{4, 4\}^3$.
 
-\subsubsection{Game versions}
-$(1, 1, 1)$ where each player occupies 1 position in a move. $(1, 2, 2)$ where the first move occupies 1 position and then both players occupy 2 positions per move.
+            \subsubsection{Game versions}
+                $(1, 1, 1)$ where each player occupies 1 position in a move. $(1, 2, 2)$ where the first move occupies 1 position and then both players occupy 2 positions per move.
 
-\subsection{Maker-Breaker games}
-In a Maker-Breaker game, the Maker is the player trying to achieve the winning objective and Breaker is the player trying to stop the Maker from achieving this.
+        \subsection{Maker-Breaker games}
+            In a Maker-Breaker game, the Maker is the player trying to achieve the winning objective and Breaker is the player trying to stop the Maker from achieving this.
 
-\subsubsection{Insights into Maker-Maker games}
-If a $k$-game is a Breaker win in the Maker-Breaker version, we know that the original Maker-Maker version is a draw.
-Conversely if a $k$-game is a Maker win in the Maker-Breaker version, we cannot tell anything about the original Maker-Maker variant.
-Thereofre to prove Maker wins, we have to show them in the Maker-Maker version.
+            \subsubsection{Insights into Maker-Maker games}
+                If a $k$-game is a Breaker win in the Maker-Breaker version, we know that the original Maker-Maker version is a draw.
+                Conversely if a $k$-game is a Maker win in the Maker-Breaker version, we cannot tell anything about the original Maker-Maker variant.
+                Therefore to prove Maker wins, we have to show them in the Maker-Maker version.
 
-\subsubsection{Strategy stealing argument for $(1, 1, 1)$}
-In a Maker-Maker game, if there was a strategy such that P2 would have a winning strategy, P1 could just steal the strategy in a way where P1 would make a random move and then effectively play the role of P2 and employ that winning strategy. This is a contradiction as both P1 and P2 have a winning strategy. Therefore only P1 can have a winning strategy.
+            \subsubsection{Strategy stealing argument for $(1, 1, 1)$}
+                In a Maker-Maker game, if there was a strategy such that P2 would have a winning strategy, P1 could just steal the strategy in a way where P1 would make a random move and then effectively play the role of P2 and employ that winning strategy. This is a contradiction as both P1 and P2 have a winning strategy. Therefore only P1 can have a winning strategy.
 
-\subsubsection{Pairing strategies}
-A pairing strategy is a strategy for Breaker where Breaker pairs up positions on the board in such a way that if Maker occupies one position in a pair, Breaker can immediately occupy the other position in the pair and thus prevent Maker from winning. If Breaker can successfully create such a pairing strategy that covers all possible winning combinations for Maker, then Breaker has a winning strategy.
+            \subsubsection{Pairing strategies}
+                A pairing strategy is a strategy for Breaker where Breaker pairs up positions on the board in such a way that if Maker occupies one position in a pair, Breaker can immediately occupy the other position in the pair and thus prevent Maker from winning. If Breaker can successfully create such a pairing strategy that covers all possible winning combinations for Maker, then Breaker has a winning strategy.
 
-\subsection{Insights}
-    In $\{m, n\}$ tiling let 
-    \begin{align}
-        m = 2i: i\in \N. \label{m_condition}
-    \end{align}
-    It matters so that there ale straight lines going through the shapes. Then in $n = 2j + 1$ tilings, diagonals do not make sense. In $n = 2j$ tilings, however, diagonals make sense. We then distinguish between a $\{m, n = 2j\}_m$ and $\{m, n = 2j\}_{vn}$ configurations named after the Moore (M) and Von Neumann (VN) neighbourhoods. The Moore version permitting diagonals to be used and the Von Neumann version only permitting edge-connected series. The classical tic-tac-toe is then played on a $\{4, 4\}_m$ board. In the spirit of $m,n,k$ games we include also the the length of the winning sequence as follows: $\{m, n\}^k$. The number of axis that you can win on then becomes $m$ in the M configuration and $m/2$ in the VN configuration.
+        \subsection{Insights}
+            In $\{m, n\}$ tiling let 
+            \begin{align}
+                m = 2i: i\in \N. \label{m_condition}
+            \end{align}
+            It matters so that there ale straight lines going through the shapes. Then in $n = 2j + 1$ tilings, diagonals do not make sense. In $n = 2j$ tilings, however, diagonals make sense. We then distinguish between a $\{m, n = 2j\}_m$ and $\{m, n = 2j\}_{vn}$ configurations named after the Moore (M) and Von Neumann (VN) neighbourhoods. The Moore version permitting diagonals to be used and the Von Neumann version only permitting edge-connected series. The classical tic-tac-toe is then played on a $\{4, 4\}_m$ board. In the spirit of $m,n,k$ games we include also the the length of the winning sequence as follows: $\{m, n\}^k$. The number of axis that you can win on then becomes $m$ in the M configuration and $m/2$ in the VN configuration.
 
-\section{Tiling spaces}
-    No spherical tilings since they are all finite and do not form an infinite playing board.
+    \section{Tiling spaces}
+        No spherical tilings since they are all finite and do not form an infinite playing board.
 
-    The proof for any tiling with $k = 1$ is trivial as the first player wins by making any move.
+        The proof for any tiling with $k = 1$ is trivial as the first player wins by making any move.
 
-    \noindent
-    \begin{footnotesize}
-    \begin{tabular}{|c||C{0.65in}|C{0.65in}|C{0.65in}|C{0.65in}|C{0.65in}|C{0.65in}|C{0.65in}|C{0.65in}|}
-    \hline
-    \textbf{m \textbackslash n} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{$\infty$} \\ \hline \hline
+        \noindent
+        \begin{footnotesize}
+        \begin{tabular}{|c||C{0.65in}|C{0.65in}|C{0.65in}|C{0.65in}|C{0.65in}|C{0.65in}|C{0.65in}|C{0.65in}|}
+            \hline
+            \textbf{m \textbackslash n} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{$\infty$} \\ \hline \hline
 
-    \textbf{2} & 
-    \makecell{$\{2,2\}$ \\ Spherical} & 
-    \makecell{$\{2,3\}$ \\ Spherical} & 
-    \makecell{$\{2,4\}$ \\ Spherical} & 
-    \makecell{$\{2,5\}$ \\ Spherical} & 
-    \makecell{$\{2,6\}$ \\ Spherical} & 
-    \makecell{$\{2,7\}$ \\ Spherical} & 
-    \makecell{$\{2,8\}$ \\ Spherical} & 
-    \makecell{$\{2,\infty\}$ \\ Euclidean} \\ \hline
+            \textbf{2} & 
+            \makecell{$\{2,2\}$ \\ Spherical} & 
+            \makecell{$\{2,3\}$ \\ Spherical} & 
+            \makecell{$\{2,4\}$ \\ Spherical} & 
+            \makecell{$\{2,5\}$ \\ Spherical} & 
+            \makecell{$\{2,6\}$ \\ Spherical} & 
+            \makecell{$\{2,7\}$ \\ Spherical} & 
+            \makecell{$\{2,8\}$ \\ Spherical} & 
+            \makecell{$\{2,\infty\}$ \\ Euclidean} \\ \hline
 
-    \textbf{3} & 
-    \makecell{$\{3,2\}$ \\ Spherical} & 
-    \makecell{$\{3,3\}$ \\ Platonic} & 
-    \makecell{$\{3,4\}$ \\ Platonic} & 
-    \makecell{$\{3,5\}$ \\ Platonic} & 
-    \makecell{$\{3,6\}$ \\ Euclidean} & 
-    \makecell{$\{3,7\}$ \\ Hyperbolic} & 
-    \makecell{$\{3,8\}$ \\ Hyperbolic} & 
-    \makecell{$\{3,\infty\}$ \\ Paracompact} \\ \hline
+            \textbf{3} & 
+            \makecell{$\{3,2\}$ \\ Spherical} & 
+            \makecell{$\{3,3\}$ \\ Platonic} & 
+            \makecell{$\{3,4\}$ \\ Platonic} & 
+            \makecell{$\{3,5\}$ \\ Platonic} & 
+            \makecell{$\{3,6\}$ \\ Euclidean} & 
+            \makecell{$\{3,7\}$ \\ Hyperbolic} & 
+            \makecell{$\{3,8\}$ \\ Hyperbolic} & 
+            \makecell{$\{3,\infty\}$ \\ Paracompact} \\ \hline
 
-    \textbf{4} & 
-    \makecell{$\{4,2\}$ \\ Spherical} & 
-    \makecell{$\{4,3\}$ \\ Platonic} & 
-    \makecell{$\{4,4\}$ \\ Euclidean} & 
-    \makecell{$\{4,5\}$ \\ Hyperbolic} & 
-    \makecell{$\{4,6\}$ \\ Hyperbolic} & 
-    \makecell{$\{4,7\}$ \\ Hyperbolic} & 
-    \makecell{$\{4,8\}$ \\ Hyperbolic} & 
-    \makecell{$\{4,\infty\}$ \\ Paracompact} \\ \hline
+            \textbf{4} & 
+            \makecell{$\{4,2\}$ \\ Spherical} & 
+            \makecell{$\{4,3\}$ \\ Platonic} & 
+            \makecell{$\{4,4\}$ \\ Euclidean} & 
+            \makecell{$\{4,5\}$ \\ Hyperbolic} & 
+            \makecell{$\{4,6\}$ \\ Hyperbolic} & 
+            \makecell{$\{4,7\}$ \\ Hyperbolic} & 
+            \makecell{$\{4,8\}$ \\ Hyperbolic} & 
+            \makecell{$\{4,\infty\}$ \\ Paracompact} \\ \hline
 
-    \textbf{5} & 
-    \makecell{$\{5,2\}$ \\ Spherical} & 
-    \makecell{$\{5,3\}$ \\ Platonic} & 
-    \makecell{$\{5,4\}$ \\ Hyperbolic} & 
-    \makecell{$\{5,5\}$ \\ Hyperbolic} & 
-    \makecell{$\{5,6\}$ \\ Hyperbolic} & 
-    \makecell{$\{5,7\}$ \\ Hyperbolic} & 
-    \makecell{$\{5,8\}$ \\ Hyperbolic} & 
-    \makecell{$\{5,\infty\}$ \\ Paracompact} \\ \hline
+            \textbf{5} & 
+            \makecell{$\{5,2\}$ \\ Spherical} & 
+            \makecell{$\{5,3\}$ \\ Platonic} & 
+            \makecell{$\{5,4\}$ \\ Hyperbolic} & 
+            \makecell{$\{5,5\}$ \\ Hyperbolic} & 
+            \makecell{$\{5,6\}$ \\ Hyperbolic} & 
+            \makecell{$\{5,7\}$ \\ Hyperbolic} & 
+            \makecell{$\{5,8\}$ \\ Hyperbolic} & 
+            \makecell{$\{5,\infty\}$ \\ Paracompact} \\ \hline
 
-    \textbf{6} & 
-    \makecell{$\{6,2\}$ \\ Spherical} & 
-    \makecell{$\{6,3\}$ \\ Euclidean} & 
-    \makecell{$\{6,4\}$ \\ Hyperbolic} & 
-    \makecell{$\{6,5\}$ \\ Hyperbolic} & 
-    \makecell{$\{6,6\}$ \\ Hyperbolic} & 
-    \makecell{$\{6,7\}$ \\ Hyperbolic} & 
-    \makecell{$\{6,8\}$ \\ Hyperbolic} & 
-    \makecell{$\{6,\infty\}$ \\ Paracompact} \\ \hline
+            \textbf{6} & 
+            \makecell{$\{6,2\}$ \\ Spherical} & 
+            \makecell{$\{6,3\}$ \\ Euclidean} & 
+            \makecell{$\{6,4\}$ \\ Hyperbolic} & 
+            \makecell{$\{6,5\}$ \\ Hyperbolic} & 
+            \makecell{$\{6,6\}$ \\ Hyperbolic} & 
+            \makecell{$\{6,7\}$ \\ Hyperbolic} & 
+            \makecell{$\{6,8\}$ \\ Hyperbolic} & 
+            \makecell{$\{6,\infty\}$ \\ Paracompact} \\ \hline
 
-    \textbf{7} & 
-    \makecell{$\{7,2\}$ \\ Spherical} & 
-    \makecell{$\{7,3\}$ \\ Hyperbolic} & 
-    \makecell{$\{7,4\}$ \\ Hyperbolic} & 
-    \makecell{$\{7,5\}$ \\ Hyperbolic} & 
-    \makecell{$\{7,6\}$ \\ Hyperbolic} & 
-    \makecell{$\{7,7\}$ \\ Hyperbolic} & 
-    \makecell{$\{7,8\}$ \\ Hyperbolic} & 
-    \makecell{$\{7,\infty\}$ \\ Paracompact} \\ \hline
+            \textbf{7} & 
+            \makecell{$\{7,2\}$ \\ Spherical} & 
+            \makecell{$\{7,3\}$ \\ Hyperbolic} & 
+            \makecell{$\{7,4\}$ \\ Hyperbolic} & 
+            \makecell{$\{7,5\}$ \\ Hyperbolic} & 
+            \makecell{$\{7,6\}$ \\ Hyperbolic} & 
+            \makecell{$\{7,7\}$ \\ Hyperbolic} & 
+            \makecell{$\{7,8\}$ \\ Hyperbolic} & 
+            \makecell{$\{7,\infty\}$ \\ Paracompact} \\ \hline
 
-    \textbf{8} & 
-    \makecell{$\{8,2\}$ \\ Spherical} & 
-    \makecell{$\{8,3\}$ \\ Hyperbolic} & 
-    \makecell{$\{8,4\}$ \\ Hyperbolic} & 
-    \makecell{$\{8,5\}$ \\ Hyperbolic} & 
-    \makecell{$\{8,6\}$ \\ Hyperbolic} & 
-    \makecell{$\{8,7\}$ \\ Hyperbolic} & 
-    \makecell{$\{8,8\}$ \\ Hyperbolic} & 
-    \makecell{$\{8,\infty\}$ \\ Paracompact} \\ \hline
+            \textbf{8} & 
+            \makecell{$\{8,2\}$ \\ Spherical} & 
+            \makecell{$\{8,3\}$ \\ Hyperbolic} & 
+            \makecell{$\{8,4\}$ \\ Hyperbolic} & 
+            \makecell{$\{8,5\}$ \\ Hyperbolic} & 
+            \makecell{$\{8,6\}$ \\ Hyperbolic} & 
+            \makecell{$\{8,7\}$ \\ Hyperbolic} & 
+            \makecell{$\{8,8\}$ \\ Hyperbolic} & 
+            \makecell{$\{8,\infty\}$ \\ Paracompact} \\ \hline
 
-    \textbf{$\infty$} & 
-    \makecell{$\{\infty,2\}$ \\ Euclidean} & 
-    \makecell{$\{\infty,3\}$ \\ Paracompact} & 
-    \makecell{$\{\infty,4\}$ \\ Paracompact} & 
-    \makecell{$\{\infty,5\}$ \\ Paracompact} & 
-    \makecell{$\{\infty,6\}$ \\ Paracompact} & 
-    \makecell{$\{\infty,7\}$ \\ Paracompact} & 
-    \makecell{$\{\infty,8\}$ \\ Paracompact} & 
-    \makecell{$\{\infty,\infty\}$ \\ Paracompact} \\ \hline
+            \textbf{$\infty$} & 
+            \makecell{$\{\infty,2\}$ \\ Euclidean} & 
+            \makecell{$\{\infty,3\}$ \\ Paracompact} & 
+            \makecell{$\{\infty,4\}$ \\ Paracompact} & 
+            \makecell{$\{\infty,5\}$ \\ Paracompact} & 
+            \makecell{$\{\infty,6\}$ \\ Paracompact} & 
+            \makecell{$\{\infty,7\}$ \\ Paracompact} & 
+            \makecell{$\{\infty,8\}$ \\ Paracompact} & 
+            \makecell{$\{\infty,\infty\}$ \\ Paracompact} \\ \hline
+        \end{tabular}
+        \end{footnotesize}
 
-    \end{tabular}
-    \end{footnotesize}
+        \subsection{Spherical tilings}
+            All spherical tilings are finite and therefore do not provide an infinite playing board.
+            \subsubsection{The $\{m, 2\}$ tilings}
+                The $\{m, 2\}$ tilings consist of only 2 playable polygons, and therefore the game is a trivial draw for $k > 1$ as both of the players occupy exactly one of the polygons.
+            \subsubsection{The $\{2, n\}$ tilings}
+                Proof is the same as for the $\{2, \infty\}$ tiling.
+        \subsection{Platonic tilings}
+            Platonic tilings are a subset of phericla tilings that result in the platonic solids. They are the $\{3, 3\}, \{3, 4\}, \{3, 5\}, \{4, 3\}, \{5, 3\}$ tilings and correspond to the tetrahedron, octahedron, icosahedron, cube and dodecahedron respectively.
+            Out of these we will only look at $\{4, 3\}$ as all of the other tilings are made of odd-sided polygons and therefore do not satisfy condition \ref{m_condition}.
+            \subsubsection{The $\{4, 3\}$ tiling}
+                This platonic tiling corresponds to the cube. It is a trivial draw for $k > 3$ as both players alternatively occupy one of the polygons and since there are 6 of them, each player will in the end occupy 3 of the polygons.\\
+                For $K \le 3$ it is a win for P1. This can be shown by brute force as there are only 8 possible games (up to symmetry) for the $\{4, 3\}^3$ game.
+        \subsection{Euclidean tilings}
+            The only regular tilings of Euclidean space are $\{2, \infty\}, \{3, 6\}, \{4, 4\}, \{6, 3\}, \{\infty, 2\}$. We do not look at the $\{\infty, 2\}$ tiling as it does not provide an infinite playing board. We also exclude the $ \{3, 6\}$ tiling as it does not satisfy condition \ref{m_condition}. Finally, we also do not spend too much time looking at the $\{4, 4\}$ tiling as this is the case with regular $m, n, k$-games and has been studied extensively. We are left with the $\{2, \infty\}$ and $\{6, 3\}$ tilings, which we take a close look at.
 
-\subsection{Spherical tilings}
-    All spherical tilings are finite and therefore do not provide an infinite playing board.
-\subsubsection{The $\{m, 2\}$ tilings}
-    The $\{m, 2\}$ tilings consist of only 2 playable polygons, and therefore the game is a trivial draw for $k > 1$ as both of the players occupy exactly one of the polygons.
-\subsubsection{The $\{2, n\}$ tilings}
-    Proof is the same as for the $\{2, \infty\}$ tiling.
-\subsection{Platonic tilings}
-    Platonic tilings are a subset of phericla tilings that result in the platonic solids. They are the $\{3, 3\}, \{3, 4\}, \{3, 5\}, \{4, 3\}, \{5, 3\}$ tilings and correspond to the tetrahedron, octahedron, icosahedron, cube and dodecahedron respectively.
-    Out of these we will only look at $\{4, 3\}$ as all of the other tilings are made of odd-sided polygons and therefore do not satisfy condition \ref{m_condition}.
-\subsubsection{The $\{4, 3\}$ tiling}
-    This platonic tiling corresponds to the cube. It is a trivial draw for $k > 3$ as both players alternatively occupy one of the polygons and since there are 6 of them, each player will in the end occupy 3 of the polygons.\\
-    For $K \le 3$ it is a win for P1. This can be shown by brute force as there are only 8 possible games (up to symmetry) for the $\{4, 3\}^3$ game.
-\subsection{Euclidean tilings}
-    The only regular tilings of Euclidean space are $\{2, \infty\}, \{3, 6\}, \{4, 4\}, \{6, 3\}, \{\infty, 2\}$. We do not look at the $\{\infty, 2\}$ tiling as it does not provide an infinite playing board. We also exclude the $ \{3, 6\}$ tiling as it does not satisfy condition \ref{m_condition}. Finally, we also do not spend too much time looking at the $\{4, 4\}$ tiling as this is the case with regular $m, n, k$-games and has been studied extensively. We are left with the $\{2, \infty\}$ and $\{6, 3\}$ tilings, which we take a close look at.
+            \subsubsection{The $\{2, \infty\}$ tiling}
+                This is a very trivial case as it is a win for P1 in the case of $k \le 2$ and a draw in the case $k > 2$.
+                \par
+                For the case $k = 2$ P1 has a winning strategy. We can see that the $\{2, \infty\}$ has a reflective symmetry. Therefore the is only one game (up to symmetry) of $\{2, \infty\}^2$. It is shown in Figure \ref{fig:{2, infty}-2}.
 
-\subsubsection{The $\{2, \infty\}$ tiling}
-    This is a very trivial case as it is a win for P1 in the case of $k \le 2$ and a draw in the case $k > 2$.
-\par
-    For the case $k = 2$ P1 has a winning strategy. We can see that the $\{2, \infty\}$ has a reflective symmetry. Therefore the is only one game (up to symmetry) of $\{2, \infty\}^2$. It is shown in Figure \ref{fig:{2, infty}-2}.
+                \begin{figure}[ht]
+                    \centering
+                    \includegraphics[width=0.5\linewidth]{\PATH{2, infty}^2_win.png}
+                    \caption{Drawing of the winning strategy for $\{2, \infty\}^2$.}
+                    \label{fig:{2, infty}-2}
+                \end{figure}
 
-    \begin{figure}[ht]
-        \centering
-        \includegraphics[width=0.5\linewidth]{\PATH{2, infty}^2_win.png}
-        \caption{Drawing of the winning strategy for $\{2, \infty\}^2$.}
-        \label{fig:{2, infty}-2}
-    \end{figure}
+                \par
+                For the case $k > 2$ We can show this using a simple pairing argument where we tile the space as in Figure \ref{fig:{2, infty}}.
+                \begin{figure}[ht]
+                    \centering
+                    \includegraphics[width=0.5\linewidth]{\PATH{2, infty}_pair.png}
+                    \caption{Pairing strategy for $\{2, \infty\}^3$.}
+                    \label{fig:{2, infty}}
+                \end{figure}\\
+                \textbf{NEEDS PROOF OF SAME THING FOR $(1, 2, 2)$}
 
-    \par
-    For the case $k > 2$ We can show this using a simple pairing argument where we tile the space as in Figure \ref{fig:{2, infty}}.
-    \begin{figure}[ht]
-        \centering
-        \includegraphics[width=0.5\linewidth]{\PATH{2, infty}_pair.png}
-        \caption{Pairing strategy for $\{2, \infty\}^3$.}
-        \label{fig:{2, infty}}
-    \end{figure}\\
-    \textbf{NEEDS PROOF OF SAME THING FOR $(1, 2, 2)$}
+            \subsubsection{The $\{6, 3\}$ tiling}
+                Since the vertex degree in this tiling is odd, we will not consider diagonals.
 
-\subsubsection{The $\{6, 3\}$ tiling}
-    Since the vertex degree in this tiling is odd, we will not consider diagonals.
+                \begin{figure}[ht]
+                    \centering
+                    \includegraphics[width=0.5\linewidth]{\PATH 6_3_7_zetters_tiling.png}
+                    \caption{Pairing strategy for $\{6, 3\}^7$.}
+                    \label{fig:{6, 3}-7}
+                \end{figure}
 
-    \begin{figure}[ht]
-        \centering
-        \includegraphics[width=0.5\linewidth]{\PATH 6_3_7_zetters_tiling.png}
-        \caption{Pairing strategy for $\{6, 3\}^7$.}
-        \label{fig:{6, 3}-7}
-    \end{figure}
+                \begin{figure}[ht]
+                    \centering
+                    \includegraphics[width=0.5\linewidth]{\PATH 6_3-tile.png}
+                    \caption{One repeating tile in the $\{6, 3\}^7$ pairing strategy.}
+                    \label{fig:{6, 3}-7-tile}
+                \end{figure}
 
-    \begin{figure}[ht]
-        \centering
-        \includegraphics[width=0.5\linewidth]{\PATH 6_3-tile.png}
-        \caption{One repeating tile in the $\{6, 3\}^7$ pairing strategy.}
-        \label{fig:{6, 3}-7-tile}
-    \end{figure}
+                Figure \ref{fig:{6, 3}-7} shows a winning breaker strategy for the $\{6, 3\}^7$ game. The lines represent pairs like in a regular pairing strategy.
+                The rest is tiled by the 4x3 rhombuses. A zoomed in version of one of these tiles is in Figure \ref{fig:{6, 3}-7-tile}.
+                The couloured lines represent all the directions in which breaker has to play at least once to win.\\
+                This has been shown to be a draw by T. G. L. Zetters \cite{guy_selfridge_zetters_1980_s10}.\\
+                \textbf{NEEDS PROOF FOR $k < 5$.}\\
+                \begin{figure}[ht]
+                    \centering
+                    \includegraphics[width=0.5\linewidth]{\PATH{6, 3}_win4.png}
+                    \caption{Forced Winning configuration (up to symmetry) for $\{6, 3\}^4.$}
+                    \label{fig:6, 3 - win 4}
+                \end{figure}
 
-    Figure \ref{fig:{6, 3}-7} shows a winning breaker strategy for the $\{6, 3\}^7$ game. The lines represent pairs like in a regular pairing strategy.
-    The rest is tiled by the 4x3 rhombuses. A zoomed in version of one of these tiles is in Figure \ref{fig:{6, 3}-7-tile}.
-    The couloured lines represent all the directions in which breaker has to play at least once to win.\\
-    This has been shown to be a draw by T. G. L. Zetters \cite{guy_selfridge_zetters_1980_s10}.\\
-    \textbf{NEEDS PROOF FOR $k < 5$.}\\
-    \begin{figure}[ht]
-        \centering
-        \includegraphics[width=0.5\linewidth]{\PATH{6, 3}_win4.png}
-        \caption{Forced Winning configuration (up to symmetry) for $\{6, 3\}^4.$}
-        \label{fig:6, 3 - win 4}
-    \end{figure}
+                \begin{figure}[ht]
+                    \centering
+                    \includegraphics[width=0.5\linewidth]{\PATH{6, 3}_last_moves-4.png}
+                    \caption{Threat illustration for $\{6, 3\}^4$.}
+                    \label{fig:6, 3 - threats 4}
+                \end{figure}
 
-    \begin{figure}[ht]
-        \centering
-        \includegraphics[width=0.5\linewidth]{\PATH{6, 3}_last_moves-4.png}
-        \caption{Threat illustration for $\{6, 3\}^4$.}
-        \label{fig:6, 3 - threats 4}
-    \end{figure}
+                \textbf{NEEDS PROOFS FOR $(1, 2, 2)$}
 
-    \textbf{NEEDS PROOFS FOR $(1, 2, 2)$}
+        \subsection{Hyperbolic tilings}
+            There is an infinite amount of hyperbolic tilings. We will therefore look at some representative examples and then draw general conclusions.
 
-\subsection{Hyperbolic tilings}
-    There is an infinite amount of hyperbolic tilings. We will therefore look at some representative examples and then draw general conclusions.
-
-\newpage
-\bibliographystyle{plain}
-\nocite{*}
-\bibliography{bibliography}
+    \newpage
+    \bibliographystyle{plain}
+    \nocite{*}
+    \bibliography{bibliography}
 \end{document}
