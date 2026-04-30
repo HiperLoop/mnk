@@ -1,8 +1,8 @@
 #ifndef SOLVERS
 #define SOLVERS
 
-#include "board.hpp"
-#include "game_logic.hpp"
+#include "../background_logic/board.hpp"
+#include "../background_logic/game_logic.hpp"
 
 class Solver {
 public:
@@ -15,17 +15,16 @@ public:
     int max_depth = 0; // Maximum search depth for the solver (relevant for minimax based solvers)
 
     // Constructor
-    Solver(Tiling* tiling, int win_length, bool is_maker_maker, bool is_two_player, double (*move_eval_function)(Tile& target, int playerId, Tiling* tiling, int win_length, int depth, int maxDepth), std::vector<Tile*> (*move_selection_function)(Tiling* tiling, int playerId), int max_depth) {}
+    Solver(Tiling* tiling, int win_length, bool is_maker_maker, bool is_two_player, double (*move_eval_function)(Tile& target, int playerId, Tiling* tiling, int win_length, int depth, int maxDepth), std::vector<Tile*> (*move_selection_function)(Tiling* tiling, int playerId), int max_depth);
 
     // Destructor
-    ~Solver() {}
+    ~Solver();
 
+    bool firstWins();
 private:
-    Tile* selectBestMove(Tiling * tiling, int playerId, int win_length, int depth, int maxDepth) {}
+    Tile* selectBestMove(Tiling * tiling, int playerId, int win_length, int depth, int maxDepth);
 
-    bool performPly(int playerId) {}
-
-    bool firstWins() {}
+    bool performPly(int playerId);
 };
 
 #endif

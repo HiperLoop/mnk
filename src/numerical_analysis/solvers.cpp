@@ -2,7 +2,9 @@
 
 // Constructor
 Solver::Solver(Tiling* tiling, int win_length, bool is_maker_maker, bool is_two_player, double (*move_eval_function)(Tile& target, int playerId, Tiling* tiling, int win_length, int depth, int maxDepth), std::vector<Tile*> (*move_selection_function)(Tiling* tiling, int playerId), int max_depth) 
-    : tiling(tiling), win_length(win_length), is_maker_maker(is_maker_maker), is_two_player(is_two_player), move_eval_function(move_eval_function), move_selection_function(move_selection_function), max_depth(max_depth) {}
+    : tiling(tiling), win_length(win_length), is_maker_maker(is_maker_maker), is_two_player(is_two_player), move_eval_function(move_eval_function), move_selection_function(move_selection_function), max_depth(max_depth) {
+        std::cout << std::format("Initialized solver with win length {}, maker-maker: {}, two-player: {}, max depth: {}.\n", win_length, is_maker_maker, is_two_player, max_depth);
+    }
 
 // Destructor
 Solver::~Solver() {     
@@ -33,7 +35,8 @@ bool Solver::performPly(int playerId) {
     }
     else {
         // Handle the case where there are no valid moves (e.g., pass or end game)
-        std::cout << std::format("No valid moves available for player {}.\n", playerId); // Placeholder message
+        //std::cout << std::format("No valid moves available for player {}.\n", playerId); // Placeholder message
+        return false; // No moves means this player cannot win on this ply
     }
 
     return GameLogic::CheckWinCondition(*tiling, playerId, win_length); // Check if this move wins the game for the player
