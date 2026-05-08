@@ -18,10 +18,9 @@ int main() {
 
     
     // Test tiling for a cube
-    Tiling cube(4, 3, 1);
-    cube.PrintData();
-    Solver* PF = Proof_Number_Search::InitializeSolver(&cube, 2, 100);
-    std::cout << "Testing proof number search solver on a cube tiling with win length 2 and max depth 100...\n";
+    Tiling hexTest(6, 3, 2);
+    hexTest.PrintData();
+    Solver* PF = Proof_Number_Search::InitializeSolver(&hexTest, 4, 5);
     std::cout << std::format("Does the first player have a winning strategy? {}\n", PF->firstWins() ? "Yes" : "No");
     return 0;
 }
