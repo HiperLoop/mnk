@@ -1,0 +1,30 @@
+#ifndef SOLVERS
+#define SOLVERS
+
+#include "../background_logic/board.hpp"
+#include "../background_logic/game_logic.hpp"
+
+class Solver {
+public:
+    Tiling* tiling; // Pointer to the tiling being solved
+    int win_length = 0; // Length of line required to win (k in m,n,k)
+    bool is_maker_maker = false; // Whether the solver is for a maker-maker game (as opposed to maker-breaker)
+    bool is_two_player = true; // Whether the solver is for a two player game (as opposed to a one player puzzle)
+    double (*state_eval_function)(Tile& target, int playerId, Tiling* tiling, int win_length, int depth, int maxDepth) = nullptr; // Function pointer for the move evaluation function that evalueates the score of the given target tile
+    Tile* (*selectBestMove)(int playerId, Tiling* tiling, int win_length, int maxDepth) = nullptr;
+    std::vector<Tile*> (*move_selection_function)(Tiling* tiling, int playerId) = nullptr; // Function pointer for the move selection function that selects the candidate moves to be evaluated at each step
+    int max_depth = 0; // Maximum search depth for the solver (relevant for minimax based solvers)
+    double firstWinEval = 0;
+
+    // Constructor
+    Solver(Tiling* tiling, int win_length, bool is_maker_maker, bool is_two_player, double (*state_eval_function)(Tile& target, int playerId, Tiling* tiling, int win_length, int depth, int maxDepth), std::vector<Tile*> (*move_selection_function)(Tiling* tiling, int playerId), int max_depth, Tile* (*selectBestMove)(int playerId, Tiling* tiling, int win_length, int maxDepth), double firstWinEval);
+
+    // Destructor
+    ~Solver();
+
+    bool firstWins();
+private:
+    bool performPly(int playerId);
+};
+
+#endif

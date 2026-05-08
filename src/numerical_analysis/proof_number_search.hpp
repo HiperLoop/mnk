@@ -1,0 +1,20 @@
+#ifndef PNS
+#define PNS
+
+#include "solvers.hpp"
+
+namespace Proof_Number_Search {
+    // Eval function for proof number search
+    double stateEvalFunction(Tile& target, int playerId, Tiling* tiling, int win_length, int depth, int maxDepth);
+
+    // Move selection function for proof number search
+    std::vector<Tile*> moveSelectionFunction(Tiling* tiling, int playerId);
+
+    // Proof number search solver class instance
+    Solver* InitializeSolver(Tiling* tiling, int win_length, int maxDepth);
+
+    // Function to select the best move in a position
+    Tile* selectBestMove(int playerId, Tiling* tiling, int win_length, int maxDepth);
+}
+
+#endif
